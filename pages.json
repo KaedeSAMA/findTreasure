@@ -1,0 +1,79 @@
+{
+    "easycom" : {
+        "^u-(.*)" : "uview-ui/components/u-$1/u-$1.vue"
+    },
+    "pages" : [
+        //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+        {
+            "path" : "pages/home/home",
+            "style" : {
+                "navigationBarTitleText" : "",
+                "enablePullDownRefresh" : false
+            }
+        },
+        // {
+        // 	"path": "pages/classification/classification",
+        // 	"style": {
+        // 		"navigationBarTitleText": "",
+        // 		"enablePullDownRefresh": false
+        // 	}
+        // }, 
+        {
+            "path" : "pages/map/map",
+            "style" : {
+                "navigationBarTitleText" : "",
+                "enablePullDownRefresh" : false
+            }
+        },
+        {
+            "path" : "pages/my/my",
+            "style" : {
+                "navigationBarTitleText" : "",
+                "enablePullDownRefresh" : false
+            }
+        },
+        // {
+        // 	"path": "pages/knowledge/knowledge",
+        // 	"style": {
+        // 		"navigationBarTitleText": "",
+        // 		"enablePullDownRefresh": false
+        // 	}
+        // },
+        {
+            "path" : "pages/login/login",
+            "style" : {
+                "navigationBarTitleText" : "",
+                "enablePullDownRefresh" : false
+            }
+        },
+        {
+            "path" : "pages/login/demo",
+            "style" : {}
+        }
+    ],
+    "tabBar" : {
+        "selectedColor" : "#00CCFF",
+        "list" : [
+            {
+                "pagePath" : "pages/home/home",
+                "text" : "首页"
+            },
+            {
+                "pagePath" : "pages/classification/classification",
+                "text" : "分类"
+            },
+            {
+                "pagePath" : "pages/my/my",
+                "text" : "我的"
+            }
+        ]
+    },
+    "globalStyle" : {
+        "navigationBarTextStyle" : "black",
+        "navigationBarTitleText" : "uni-app",
+        "navigationBarBackgroundColor" : "#F8F8F8",
+        "backgroundColor" : "#F8F8F8",
+        "navigationStyle" : "custom"
+    },
+    "uniIdRouter" : {}
+}
