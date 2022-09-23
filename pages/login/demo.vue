@@ -1,7 +1,7 @@
 <template>
 	<view class="u-demo-block">
 		<text class="u-demo-block__title">文本样式</text>
-		<view class="u-demo-block__content">
+		<view>
 			<u-code ref="uCode2" @change="codeChange2" keep-running start-text="点我获取验证码"></u-code>
 			<text @tap="getCode2" :text="tips2" class="u-page__code-text">{{tips2}}</text>
 		</view>

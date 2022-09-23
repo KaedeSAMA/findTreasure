@@ -50,6 +50,15 @@
             "path" : "pages/login/demo",
             "style" : {}
         }
+        ,{
+            "path" : "pages/demo/demo",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
     "tabBar" : {
         "selectedColor" : "#00CCFF",
