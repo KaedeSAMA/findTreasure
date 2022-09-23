@@ -37,20 +37,27 @@
 		</view>
 		<!-- 注册按钮 -->
 		<view class="loginBtnDiv">
-			<u-button text="验证登陆" size="large" type="success" color="#4E577E"></u-button>
+			<u-button text="验证登陆" size="large" type="success" color="#4E577E" @click="login"></u-button>
 		</view>
 		<!-- 开发者协议 -->
 		<view class="agreement">
 			<!-- 勾选用户协议盒子 -->
 			<view class="pendingBlock">
-
+				<checkbox-group name="" @change="changeIsAgree">
+					<label>
+						<checkbox style="transform: scale(0.7)"/><text></text>
+					</label>
+				</checkbox-group>
 				<view class="pendingFont">
-					我已阅读并统一用户协议和隐私政策，未注册绑定
-					的手机号验证成功后将自动注册
+					我已阅读并同意
+					<text class="blue">用户协议和隐私政策</text>
+					，未注册绑定的手机号验证成功后将自动注册
 				</view>
 			</view>
 			<!-- 查看帮助盒子 -->
-			<view></view>
+			<view class="findHelp">遇到问题？
+				<text class="blue">查看帮助</text>
+			</view>
 		</view>
 	</view>
 </template>
@@ -61,8 +68,7 @@
 			return {
 				uCodetips: '',
 				phone: '',
-				agree:'',
-				agreeList:[]
+				isAgree:false
 			};
 		},
 		methods: {
@@ -85,12 +91,21 @@
 				} else {
 					uni.$u.toast('倒计时结束后再发送');
 				}
+			},
+			login(){
+				console.log(this.isAgree);
+			},
+			changeIsAgree(){
+				this.isAgree = !this.isAgree
 			}
 		}
 	}
 </script>
 
 <style lang="less">
+	.blue{
+		color: rgb(46, 134, 255);
+	}
 	.loginRoot{
 		display: flex;
 		flex-direction: column;
@@ -123,10 +138,12 @@
 	}
 
 	.titleImage {
-		width: 750rpx;
+		width: 100%;
 		color: white;
 		font-size: 56rpx;
-		background-color: #31406B;
+		// background-color: #31406B;
+		background: url('../../static/icon/loginBack.png') no-repeat;
+		background-size: cover;
 		height: 154rpx;
 		display: flex;
 		flex-direction: row;
@@ -175,16 +192,25 @@
 	}
 	.agreement{
 		font-size: 30rpx;
-		
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		color: #9a9a9a;
 		.pendingBlock{
 			width: 700rpx;
 			display: flex;
 			flex-direction: row;
 			justify-content: space-evenly;
-			align-items: center;
+			align-items: flex-start;
 			.pendingFont{
 				width: 650rpx;
+				font-size: 30rpx;
+				line-height: 52rpx;
 			}
 		}
+	}
+	.findHelp{
+		width: 280rpx;
+		margin-top: 30rpx;
 	}
 </style>

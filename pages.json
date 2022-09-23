@@ -45,12 +45,7 @@
                 "navigationBarTitleText" : "",
                 "enablePullDownRefresh" : false
             }
-        },
-        {
-            "path" : "pages/login/demo",
-            "style" : {}
-        }
-        ,{
+        },{
             "path" : "pages/demo/demo",
             "style" :                                                                                    
             {
