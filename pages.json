@@ -45,30 +45,45 @@
                 "navigationBarTitleText" : "",
                 "enablePullDownRefresh" : false
             }
-        },{
+        },
+        {
             "path" : "pages/demo/demo",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+            "style" : {
+                "navigationBarTitleText" : "",
+                "enablePullDownRefresh" : false
             }
-            
+        },
+        {
+            "path" : "pages/classification/classification",
+            "style" : {}
         }
     ],
     "tabBar" : {
-        "selectedColor" : "#00CCFF",
+		//文字未选中颜色
+		"color": "#9a9a9a",
+		//选中文字的颜色
+        "selectedColor" : "#4f4f4f",
+		//背景颜色
+		"backgroundColor": "#ffffff",
+		
         "list" : [
             {
                 "pagePath" : "pages/home/home",
-                "text" : "首页"
+                "text" : "首页",
+				"iconPath": "static/tabbar_icon/home.png",
+				"selectedIconPath": "static/tabbar_icon/homeChecked.png"
             },
             {
-                "pagePath" : "pages/classification/classification",
-                "text" : "分类"
+                "pagePath" : "pages/map/map",
+                "text" : "藏品",
+				"iconPath": "static/tabbar_icon/map.png",
+				"selectedIconPath": "static/tabbar_icon/mapChecked.png"
             },
             {
                 "pagePath" : "pages/my/my",
-                "text" : "我的"
+                "text" : "我的",
+				"iconPath": "static/tabbar_icon/user.png",
+				"selectedIconPath": "static/tabbar_icon/userChecked.png"
             }
         ]
     },

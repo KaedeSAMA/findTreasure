@@ -140,6 +140,7 @@
 	.titleImage {
 		width: 100%;
 		color: white;
+		font-family: PMZDBiaoTi-regular;
 		font-size: 56rpx;
 		// background-color: #31406B;
 		background: url('../../static/icon/loginBack.png') no-repeat;

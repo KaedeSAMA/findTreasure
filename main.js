@@ -4,6 +4,7 @@ import App from './App'
 import Vue from 'vue'
 import uView from "uview-ui";
 Vue.use(uView);
+import { uni } from "./apis/request.js";
 
 Vue.config.productionTip = false
 App.mpType = 'app'
