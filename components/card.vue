@@ -54,7 +54,7 @@ export default {
 <style lang="less">
 .cartRoot {
   width: 320rpx;
-  background-color: rgb(67, 61, 61);
+  background-color: #fff;
   border-radius: 6px 6px 6px 6px;
   margin-top: 28rpx;
   color: #333333;
@@ -75,6 +75,7 @@ export default {
 
   .nameAndLocation {
     font-size: 32rpx;
+	font-weight: 600;
     width: 70%;
     min-height: 140rpx;
     display: flex;

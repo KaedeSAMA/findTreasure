@@ -1,0 +1,45 @@
+<template>
+	<view class="userTab">
+		<!-- 左边部分的布局 -->
+		<view class="flexLeft">
+			<u--image :src="iconURL" mode="" width="56rpx" height="56rpx" class="icon"></u--image>
+			<view class="font">
+				{{tabName}}
+			</view>
+		</view>
+		<!-- 右边的箭头 -->
+		<u--image src="../../static/icon/leftArrow.png" width="80rpx" height="80rpx"></u--image>
+	</view>
+</template>
+
+<script>
+	export default {
+		name:"userTab",
+		data() {
+			return {
+				
+			};
+		},
+		props:{
+			tabName:String,
+			iconURL:String,
+		}
+	}
+</script>
+
+<style lang="less">
+.userTab{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	.flexLeft{
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		.icon{
+			margin-right: 24rpx;
+		}
+	}
+}
+</style>

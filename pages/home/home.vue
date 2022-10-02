@@ -116,6 +116,7 @@ export default {
         //把名字拆成字符数组，实现多于七个字的卡片名字部分隐藏
         let charNum = val.name.split("");
         val.charList = charNum;
+        
         if (val.id % 2 != 0) this.cardListL.push(val);
         else this.cardListR.push(val);
         console.dir(this.cardListL);
