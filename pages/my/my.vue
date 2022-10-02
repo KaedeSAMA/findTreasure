@@ -56,7 +56,8 @@
 			</view>
 		</view>
 	</view>
-	<user-tab tabName="qwq" iconURL="../../static/icon/remind.png"></user-tab>
+	<!-- 下面的每一个小标签，使用自己封装的userTab实现 -->
+	<user-tab v-for="index in userTabConfig" :tabName="index.tabName" :iconURL="index.iconURL"></user-tab>
   </view>
 </template>
 
@@ -71,7 +72,23 @@ export default {
       userAvatar: "",
 	  userDynanic:0,
 	  userFans:0,
-	  userFollows:0
+	  userFollows:0,
+	  userTabConfig:[{
+		  tabName:"我的收藏",
+		  iconURL:"../../static/icon/tabNameLike.png"
+	  },{
+		  tabName:"浏览记录",
+		  iconURL:"../../static/icon/tabNameHistory.png"
+	  },{
+		  tabName:"我想去",
+		  iconURL:"../../static/icon/tabNameBag.png"
+	  },{
+		  tabName:"帮助和反馈",
+		  iconURL:"../../static/icon/tabNameHelp.png"
+	  },{
+		  tabName:"设置",
+		  iconURL:"../../static/icon/tabNameSettings.png"
+	  }]
     };
   },
   components:{
@@ -119,6 +136,8 @@ export default {
 }
 .userInfo{
 	margin-top: 50rpx;
+	margin-bottom:65rpx;
+	margin
 	width: 100%;
 	display: flex;
 	flex-direction: row;

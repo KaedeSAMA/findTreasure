@@ -119,7 +119,7 @@ export default {
         
         if (val.id % 2 != 0) this.cardListL.push(val);
         else this.cardListR.push(val);
-        console.dir(this.cardListL);
+        // console.dir(this.cardListL);
       });
     }
   },
@@ -131,7 +131,7 @@ export default {
 
 <style lang="less">
 .homeRoot {
-  padding: 30rpx 20rpx 100rpx 20rpx;
+  padding: 90rpx 20rpx 100rpx 20rpx;
   background-color: rgba(78, 87, 126, 100);
   min-height: 1500rpx;
 }

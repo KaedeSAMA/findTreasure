@@ -63,7 +63,7 @@ class Request {
         success: (res) => {
           let routes = getCurrentPages(); // 获取当前打开过的页面路由数组
           console.log("routes = ");
-          console.dir(routes);
+          // console.dir(routes);
           let curRoute = routes[routes.length - 1].route; 
           if (res.data.code === '10003' && (curRoute !== 'pages/Sign/Sign' || curRoute !== 'pages/SignDetail/SignDetail' || curRoute !== 'pages/SignIntroduce/SignIntroduce')) {
             store._modules.root._children.m_user.isLogin = false

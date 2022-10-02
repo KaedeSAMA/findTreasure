@@ -29,6 +29,8 @@
 
 <style lang="less">
 .userTab{
+	margin-top:12rpx;
+	margin-bottom:12rpx;
 	display: flex;
 	flex-direction: row;
 	align-items: center;

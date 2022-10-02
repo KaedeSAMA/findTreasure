@@ -41,9 +41,13 @@
                 ]
             },
             /* ios打包配置 */
-            "ios" : {},
+            "ios" : {
+                "dSYMs" : false
+            },
             /* SDK配置 */
-            "sdkConfigs" : {}
+            "sdkConfigs" : {
+                "ad" : {}
+            }
         }
     },
     /* 快应用特有相关 */
@@ -68,25 +72,26 @@
     "uniStatistics" : {
         "enable" : false
     },
-    "vueVersion" : "2" ,
+    "vueVersion" : "2",
     "h5" : {
-		"devServer" : {
-		"port" : 8085, //端口号
-		"disableHostCheck" : true,
-		"proxy" : {
-			  "/api" : {
-			  "target" : "http://www.haorui.xyz", //自己项目接口域名
-			  "changeOrigin" : true,  //是否跨域
-			  "secure" : true,  // 设置支持https协议的代理
-			  "pathRewrite": {"^/api":"/api"}   //api路径重定向，根据具体情况调整，也可不写
-				}
-			}
-		
-		},
-		"optimization" : {
-		   "treeShaking" : {
-			   "enable" : false
-			}
-		}
-	}
+        "devServer" : {
+            "port" : 8085, //端口号
+            "disableHostCheck" : true,
+            "proxy" : {
+                "/api" : {
+                    "target" : "http://www.haorui.xyz", //自己项目接口域名
+                    "changeOrigin" : true, //是否跨域
+                    "secure" : true, // 设置支持https协议的代理
+                    "pathRewrite" : {
+                        "^/api" : "/api"
+                    } //api路径重定向，根据具体情况调整，也可不写
+                }
+            }
+        },
+        "optimization" : {
+            "treeShaking" : {
+                "enable" : false
+            }
+        }
+    }
 }

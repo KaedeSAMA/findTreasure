@@ -39,7 +39,7 @@ export default {
           this.charList[3] +
           this.charList[4] +
 
-          "···" 
+          "..." 
       } else {
         this.computedName = this.treasureName;
       }
@@ -66,7 +66,7 @@ export default {
 }
 
 .img {
-  width: 100%;
+  width: 101%;
 }
 
 .cardFoot {
