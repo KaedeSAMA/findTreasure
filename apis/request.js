@@ -16,8 +16,9 @@ $http.baseUrl = 'http://www.haorui.xyz:8085'
 
 $http.beforeRequest = function(options) {
 	var header = {
-		'cookie': wx.getStorageSync("sessionid") //读取本地保存好的上一次cookie
+		'token': uni.getStorageSync('tokenCode') //读取本地保存好的上一次cookie
 	};
+	console.log(header.token)
 	options.header = header
 	uni.showLoading({
 		title: '加载中...'

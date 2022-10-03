@@ -58,6 +58,7 @@
           :treasureName="item.name"
           :location="item.location"
           :charList="item.charList"
+		  @click= "changePageTo()"
         ></card>
       </view>
       <view class="flowR" ref="flowR">
@@ -69,6 +70,7 @@
           :treasureName="item.name"
           :location="item.location"
           :charList="item.charList"
+		  @click= "changePageTo()"
         ></card>
       </view>
     </view>
@@ -110,7 +112,7 @@ export default {
     },
     async getCardList() {
       const res = await uni.$http.get("/home/info/all");
-      console.log(res.data.data.infoList);
+      console.log(res.data);
       res.data.data.infoList.reverse();
       res.data.data.infoList.map(val => {
         //把名字拆成字符数组，实现多于七个字的卡片名字部分隐藏
@@ -121,7 +123,17 @@ export default {
         else this.cardListR.push(val);
         // console.dir(this.cardListL);
       });
-    }
+    },
+	changePageTo(val) {
+		uni.navigateTo({
+			url: val
+		})
+	},
+	backPageTo(val){
+		uni.navigateBack({
+			delta: val
+		});
+	}
   },
   mounted() {
     this.getCardList();

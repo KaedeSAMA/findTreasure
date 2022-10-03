@@ -16,7 +16,7 @@
         <view class="userSlogan">{{userSlogan}}</view>
       </view>
     </view>
-    <view class="userhead" v-if="isLogin == false">
+    <view class="userhead" v-if="isLogin == false" @click="changePageTo('/pages/login/login')">
       <!-- 头像 -->
       <view>
         <u--image width="130rpx" shape="circle" height="130rpx" src=""></u--image>
@@ -94,7 +94,13 @@ export default {
   components:{
 	userTab,
   },
-  methods: {}
+  methods: {
+	  changePageTo(val) {
+	  	uni.navigateTo({
+	  		url: val
+	  	})
+	  }
+  }
 };
 </script>
 
@@ -102,6 +108,7 @@ export default {
 .myRoot{
 	padding-left: 50rpx;
 	padding-right:50rpx ;
+	padding-top: 90rpx;
 }
 .alignDivider{
 	width: 2rpx;
@@ -109,7 +116,7 @@ export default {
 	background-color: #BBBBBB;
 }
 .header{
-	margin-top: 30rpx;
+	margin-top: 10rpx;
 	padding-right: 50rpx;
 	width:100%;
 	display: flex;

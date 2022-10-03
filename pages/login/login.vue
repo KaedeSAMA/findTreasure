@@ -3,10 +3,11 @@
 		<!-- 头部标题栏，里面三个div是图标，文字和按钮 -->
 		<view class="title">
 			<view class="title_back">
-				<u-icon name="arrow-leftward" color="rgb(16, 16, 16)" size="20"></u-icon>
+				<u-icon name="arrow-leftward" color="rgb(16, 16, 16)" size="20" @click="backPageTo(1)"></u-icon>
 				<view class="title_font">手机号登录注册</view>
 			</view>
-			<view class="title_font">密码登陆</view>
+			<!-- debug -->
+			<!-- <view class="title_font">密码登陆</view> -->
 		</view>
 		<!-- 头部标题栏的图片 -->
 		<view class="titleImage">
@@ -32,12 +33,12 @@
 				<view class="justCode">
 					验证码
 				</view>
-				<u--input placeholder="请输入验证码" border="none" v-model="phone" fontSize="32rpx"></u--input>
+				<u--input placeholder="请输入验证码" border="none" v-model="justCode" fontSize="32rpx"></u--input>
 			</view>
 		</view>
 		<!-- 注册按钮 -->
 		<view class="loginBtnDiv">
-			<u-button text="验证登陆" size="large" type="success" color="#4E577E" @click="login"></u-button>
+			<u-button text="验证登陆" size="large" type="success" color="#4E577E" @click="login()"></u-button>
 		</view>
 		<!-- 开发者协议 -->
 		<view class="agreement">
@@ -45,7 +46,7 @@
 			<view class="pendingBlock">
 				<checkbox-group name="" @change="changeIsAgree">
 					<label>
-						<checkbox style="transform: scale(0.7)"/><text></text>
+						<checkbox style="transform: scale(0.7)" /><text></text>
 					</label>
 				</checkbox-group>
 				<view class="pendingFont">
@@ -68,49 +69,118 @@
 			return {
 				uCodetips: '',
 				phone: '',
-				isAgree:false
+				isAgree: false,
+				justCode: ''
 			};
 		},
 		methods: {
 			codeChange(text) {
 				this.uCodetips = text;
 			},
+			checkMobile(telphone) {
+				let isChinaMobile = /^134[0-8]\d{7}$|^(?:13[5-9]|147|15[0-27-9]|178|18[2-478])\d{8}$/; //移动方面最新答复 
+				let isChinaUnion = /^(?:13[0-2]|145|15[56]|166|176|18[56])\d{8}$/; //向联通微博确认并未回复 
+				let isChinaTelcom = /^0?(133|149|153|17[34]|177|18[01]|189|199)\d{8}$/; //1349号段 电信方面没给出答复，视作不存在 
+				let isOtherTelphone = /^170\\d{7}$/; //其他运营商
+				if (telphone.length !== 11) {
+					return false
+				} else {
+					if (isChinaMobile.test(telphone)) {
+						return true;
+					} else if (isChinaUnion.test(telphone)) {
+						return true;
+					} else if (isChinaTelcom.test(telphone)) {
+						return true;
+					} else if (isOtherTelphone.test(telphone)) {
+						var num = isOtherTelphone.exec(telphone);
+						return true;
+					} else {
+						return false;
+					}
+				}
+			},
 			getCode() {
+				//debug
+				//这里以后要优化表单验证
 				if (this.$refs.uCode2.canGetCode) {
-					// 模拟向后端请求验证码
-					uni.showLoading({
-						title: '正在获取验证码'
-					})
-					setTimeout(() => {
-						uni.hideLoading();
-						// 这里此提示会被this.start()方法中的提示覆盖
-						uni.$u.toast('验证码已发送');
-						// 通知验证码组件内部开始倒计时
-						this.$refs.uCode2.start();
-					}, 2000);
+					if (this.isAgree === true) {
+						if (this.checkMobile(this.phone)) {
+							console.log('开始发送请求')
+							// 模拟向后端请求验证码
+							uni.showLoading({
+								title: '正在获取验证码'
+							})
+							uni.$http.post("/send", {
+								phoneNum: this.phone,
+								// type传1是登陆，传2是注册
+								// 不知道后端为啥这么写
+							}).then((res) => {
+								console.log(res)
+								uni.hideLoading();
+								// 这里此提示会被this.start()方法中的提示覆盖
+								uni.$u.toast('验证码已发送');
+								// 通知验证码组件内部开始倒计时
+								this.$refs.uCode2.start();
+							})
+							// setTimeout(() => {
+							// }, 2000);
+						} else {
+							uni.$u.toast('请输入正确的手机号');
+						}
+
+					} else {
+						uni.$u.toast('请勾选同意用户协议后再操作');
+					}
+
 				} else {
 					uni.$u.toast('倒计时结束后再发送');
 				}
 			},
-			login(){
-				console.log(this.isAgree);
+			async login() {
+				const res = await uni.$http.post('/login', {
+					phoneNum: this.phone,
+					verificationCode: this.justCode
+				})
+				//debug
+				// console.log("res.data.data=",res.data.data)
+				//判断是否有cookie
+				if (res.data.data){
+					//存cookie
+					uni.setStorageSync('tokenCode', res.data.data);
+					this.$store.commit('modifyIsLogin', {isLogin:true})
+				}
+				console.log('getCookie',uni.getStorageSync('tokenCode'))
+
 			},
-			changeIsAgree(){
+			changeIsAgree() {
 				this.isAgree = !this.isAgree
+			},
+			changePageTo(val) {
+				uni.navigateTo({
+					url: val
+				})
+			},
+			backPageTo(val) {
+				uni.navigateBack({
+					delta: val
+				});
 			}
 		}
 	}
 </script>
 
 <style lang="less">
-	.blue{
+	.blue {
 		color: rgb(46, 134, 255);
 	}
-	.loginRoot{
+
+	.loginRoot {
+		padding-top: 55rpx;
 		display: flex;
 		flex-direction: column;
 		align-items: center
 	}
+
 	.title {
 		width: 700rpx;
 		height: 116rpx;
@@ -185,32 +255,37 @@
 		width: 150rpx;
 		font-size: 32rpx;
 	}
-	.loginBtnDiv{
+
+	.loginBtnDiv {
 		width: 700rpx;
 		padding: 0 25rpx 0 25rpx;
 		height: 102rpx;
 		margin: 40rpx 0 40rpx 0;
 	}
-	.agreement{
+
+	.agreement {
 		font-size: 30rpx;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		color: #9a9a9a;
-		.pendingBlock{
+
+		.pendingBlock {
 			width: 700rpx;
 			display: flex;
 			flex-direction: row;
 			justify-content: space-evenly;
 			align-items: flex-start;
-			.pendingFont{
+
+			.pendingFont {
 				width: 650rpx;
 				font-size: 30rpx;
 				line-height: 52rpx;
 			}
 		}
 	}
-	.findHelp{
+
+	.findHelp {
 		width: 280rpx;
 		margin-top: 30rpx;
 	}

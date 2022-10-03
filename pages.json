@@ -46,7 +46,10 @@
             "path" : "pages/login/login",
             "style" : {
                 "navigationBarTitleText" : "",
-                "enablePullDownRefresh" : false
+                "enablePullDownRefresh" : false,
+				"app-plus":{
+				    "bounce":"none" // 将回弹属性关掉
+				}
             }
         },
         {
@@ -59,6 +62,15 @@
         {
             "path" : "pages/classification/classification",
             "style" : {}
+        }
+        ,{
+            "path" : "pages/treasure/treasure",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
         }
     ],
     "tabBar" : {
