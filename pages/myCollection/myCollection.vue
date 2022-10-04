@@ -3,7 +3,7 @@
 		<view class="title">
 			我的藏品
 		</view>
-		<my-collection-card v-for="item in collectionList" :transId="item.transId" :collectionId="item.collectionId" :name="item.name" :imgURL="item.img"></my-collection-card>
+		<my-collection-card v-for="item in collectionList" :key="item.collectionId" :transId="item.transId" :collectionId="item.collectionId" :name="item.name" :imgURL="item.img"></my-collection-card>
 	</view>
 </template>
 

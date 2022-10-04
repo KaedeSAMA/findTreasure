@@ -57,7 +57,7 @@
 		</view>
 	</view>
 	<!-- 下面的每一个小标签，使用自己封装的userTab实现 -->
-	<user-tab v-for="index in userTabConfig" :tabName="index.tabName" :iconURL="index.iconURL"></user-tab>
+	<user-tab v-for="index in userTabConfig" :key="index.id" :id="index.id" :tabName="index.tabName" :iconURL="index.iconURL"></user-tab>
   </view>
 </template>
 
@@ -66,7 +66,7 @@ import userTab from "../../components/userTab.vue"
 export default {
   data() {
     return {
-      isLogin: false,
+      isLogin: this.$store.state.isLogin,
       userName: "用户名字七个字",
       userSlogan: "这个人很懒，什么也没有留下。",
       userAvatar: "",
@@ -74,18 +74,23 @@ export default {
 	  userFans:0,
 	  userFollows:0,
 	  userTabConfig:[{
+		  id :1,
 		  tabName:"我的收藏",
 		  iconURL:"../../static/icon/tabNameLike.png"
 	  },{
+		  id :2,
 		  tabName:"浏览记录",
 		  iconURL:"../../static/icon/tabNameHistory.png"
 	  },{
+		  id:3,
 		  tabName:"我想去",
 		  iconURL:"../../static/icon/tabNameBag.png"
 	  },{
+		  id:4,
 		  tabName:"帮助和反馈",
 		  iconURL:"../../static/icon/tabNameHelp.png"
 	  },{
+		  id :5,
 		  tabName:"设置",
 		  iconURL:"../../static/icon/tabNameSettings.png"
 	  }]

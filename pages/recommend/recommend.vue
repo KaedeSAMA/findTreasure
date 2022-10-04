@@ -13,6 +13,10 @@
 			</view>
 			<!-- 图片部分 -->
 			<image :src="recommendData.img" mode="widthFix" class="img"></image>
+			<!-- 简介部分 -->
+			<view class="bottomDiscription">
+				
+			</view>
 		</view>
 	</view>
 </template>
@@ -74,8 +78,12 @@
 			
 		}
 	}
+	.bottomDiscription{
+		
+	}
 }
 .img{
 	width: 60%;
 }
+
 </style>

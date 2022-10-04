@@ -62,6 +62,10 @@ class Request {
 				header: this.header,
 				success: (res) => {
 					let routes = getCurrentPages(); // 获取当前打开过的页面路由数组
+					if(uni.getStorageSync('tokenCode')){
+						// console.log('store.state=',store.state)
+						store.state.isLogin = true
+					}
 					// console.log("routes = ");
 					// console.dir(routes);
 					// debug

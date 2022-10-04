@@ -9,6 +9,8 @@
         <view>{{ computedName }}</view>
         <view class="locationFont">地点 {{ location }}</view>
       </view>
+	  <image v-show="this.isLove == false" src="../static/icon/tabNameLike.png" mode="" class="likeIcon" @click.stop="addLike()"></image>
+	  <image v-show="this.isLove == true" src="../static/icon/iconParkLike.png" mode="" class="likeIcon" @click.stop="addLike()"></image>
     </view>
   </view>
 </template>
@@ -20,6 +22,7 @@ export default {
     return {
       //处理过的名字
       computedName: "",
+	  isLove : this.isLike
     };
   },
   props: {
@@ -29,6 +32,10 @@ export default {
 	treasureId:Number,
     location: String,
     charList: Array,
+	isLike:{
+		type : Boolean,
+		default : false
+	}
   },
   methods: {
     computeName() {
@@ -55,6 +62,31 @@ export default {
 			delta: val
 		});
 	},
+	addLike(){
+		if(this.isLove == false){
+			uni.$http.post('/home/info/collect',{
+				collectionId : this.treasureId
+			}).then((res)=>{
+				// console.log(res.data.code);
+				if(res.data.code == '00000'){
+					this.isLove = true
+				}else{
+					uni.$u.toast('收藏失败')
+				}
+			})
+		}else{
+			uni.$http.post('/home/info/cancel',{
+				collectionId : this.treasureId
+			}).then((res)=>{
+				// console.log(res.data.code);
+				if(res.data.code == '00000'){
+					this.isLove = false
+				}else{
+					uni.$u.toast('取消收藏失败')
+				}
+			})
+		}
+	},
 	goToTreasure(){
 		//debug
 		// console.log('qwq');
@@ -76,6 +108,7 @@ export default {
   border-radius: 6px 6px 6px 6px;
   margin-top: 28rpx;
   color: #333333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .14);
   //隐藏图片溢出的部分
   overflow: hidden;
   // display: flex;
@@ -90,6 +123,10 @@ export default {
 .cardFoot {
   min-height: 140rpx;
   background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 
   .nameAndLocation {
     font-size: 32rpx;
@@ -106,5 +143,10 @@ export default {
       font-size: 24rpx;
     }
   }
+}
+.likeIcon{
+	width: 40rpx;
+	height: 40rpx;
+	margin-right: 20rpx;
 }
 </style>

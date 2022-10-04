@@ -172,10 +172,11 @@ overflow: hidden;
 	// background-color: #33ccff;
 }
 .iconList{
+	width: 50%;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: space-between;
 }
 .locationAndDynasty{
 	color: #BEBEBE;

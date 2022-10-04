@@ -41,11 +41,11 @@
 		<view class="mainCards" v-show="cardListL[0] != null">
 			<view class="flowL" ref="flowL">
 				<card v-for="item in cardListL" :key="item.id" class="card" :imgURL="item.img" :treasureId="item.id" :treasureName="item.name"
-					:location="item.location" :charList="item.charList" @click=""></card>
+					:location="item.location" :charList="item.charList" :isLike="item.isLove"></card>
 			</view>
 			<view class="flowR" ref="flowR">
 				<card v-for="item in cardListR" :key="item.id" class="card" :imgURL="item.img" :treasureId="item.id" :treasureName="item.name"
-					:location="item.location" :charList="item.charList"></card>
+					:location="item.location" :charList="item.charList" :isLike="item.isLove"></card>
 			</view>
 		</view>
 	</view>
