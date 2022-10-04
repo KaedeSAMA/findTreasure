@@ -3,7 +3,7 @@
 		<!-- 头部标题栏，里面三个div是图标，文字和按钮 -->
 		<view class="title">
 			<view class="title_back">
-				<u-icon name="arrow-leftward" color="rgb(16, 16, 16)" size="20" @click="backPageTo(1)"></u-icon>
+				<u-icon name="arrow-leftward" color="rgb(16, 16, 16)" size="20" @click="backToUser()"></u-icon>
 				<view class="title_font">手机号登录注册</view>
 			</view>
 			<!-- debug -->
@@ -148,6 +148,12 @@
 					//存cookie
 					uni.setStorageSync('tokenCode', res.data.data);
 					this.$store.commit('modifyIsLogin', {isLogin:true})
+					uni.$u.toast('登录成功，即将跳转到首页。')
+					setTimeout(()=>{
+						uni.switchTab({
+							url: '/pages/home/home'
+						});
+					},1000)
 				}
 				console.log('getCookie',uni.getStorageSync('tokenCode'))
 
@@ -163,6 +169,11 @@
 			backPageTo(val) {
 				uni.navigateBack({
 					delta: val
+				});
+			},
+			backToUser(){
+				uni.switchTab({
+					url: '/pages/home/home'
 				});
 			}
 		}

@@ -66,7 +66,7 @@ class Request {
 					// console.dir(routes);
 					// debug
 					console.log('every res =');
-					console.dir(res)
+					// console.dir(res)
 					let curRoute = routes[routes.length - 1].route;
 					//如果要加判断的话就加下面这行在if里面
 					// && (curRoute !== 'pages/home/home')

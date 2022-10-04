@@ -68,6 +68,36 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"app-plus":{
+				    "bounce":"none" // 将回弹属性关掉
+				}
+            }
+            
+        }
+        ,{
+            "path" : "pages/myCollection/myCollection",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/myCollectionMore/myCollectionMore",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/recommend/recommend",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
             
@@ -89,7 +119,7 @@
 				"selectedIconPath": "static/tabbar_icon/homeChecked.png"
             },
             {
-                "pagePath" : "pages/map/map",
+                "pagePath" : "pages/myCollection/myCollection",
                 "text" : "藏品",
 				"iconPath": "static/tabbar_icon/map.png",
 				"selectedIconPath": "static/tabbar_icon/mapChecked.png"

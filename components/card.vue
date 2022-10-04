@@ -1,5 +1,5 @@
 <template>
-  <view class="cartRoot">
+  <view class="cartRoot" @click="goToTreasure()">
     <!-- 卡片的图片展示 -->
     <image class="img" :src="imgURL" mode="widthFix"> </image>
     <!-- 图片下面的简介 -->
@@ -26,6 +26,7 @@ export default {
     imgURL: String,
     //传进来的原名
     treasureName: String,
+	treasureId:Number,
     location: String,
     charList: Array,
   },
@@ -44,6 +45,23 @@ export default {
         this.computedName = this.treasureName;
       }
     },
+	changePageTo(val) {
+		uni.navigateTo({
+			url: val
+		})
+	},
+	backPageTo(val) {
+		uni.navigateBack({
+			delta: val
+		});
+	},
+	goToTreasure(){
+		//debug
+		// console.log('qwq');
+		uni.navigateTo({
+			url:`/pages/treasure/treasure?collectionId=${this.treasureId}`
+		})
+	}
   },
   mounted() {
     this.computeName();

@@ -9,7 +9,7 @@
 			<view class="title_flex">
 				<u--image  @click="backPageTo(1)" src="../../static/icon/iconPark-left Copy@1x.png" mode="" width="76rpx" height="76rpx"></u--image>
 				<view class="titleFont">
-					文物详情
+					我的数字藏品详情
 				</view>
 				<view class="title_end">
 					
@@ -35,16 +35,24 @@
 							<view class="locationAndDynasty">朝代:{{dynasty}}</view>
 						</view>
 						<!-- icon图标 -->
-						<view class="iconList">
+<!-- 						<view class="iconList">
 							<u--image   src="../../static/icon/tabNameLike.png" mode="" width="38rpx" height="38rpx"></u--image>
 							<u--image   src="../../static/icon/iconParkShare.png" mode="" width="38rpx" height="38rpx"></u--image>
 							<u--image   src="../../static/icon/iconParkComment.png" mode="" width="38rpx" height="38rpx"></u--image>
-						</view>
+						</view> -->
 					</view>
 					<!-- 分割线 -->
 					<u-divider text="分割线" :dot="true"></u-divider>
 					<!-- 抽屉 -->
 					<view class="deawerBody">
+						<!-- 鉴定小卡片 -->
+						<view class="deawerCard">
+							<view>发行方：</view>
+							<view>数字藏品ID：</view>
+							<view>发行时间：</view>
+							<view>转让次数：</view>
+							<view>转让ID：</view>
+						</view>
 						<view class="deawerBodyItem deawerBodyTitle">
 							文物介绍
 						</view>
@@ -74,7 +82,9 @@
 				dynasty:'朝代名字七个字',
 				tag:'标签名字七个字',
 				feature:'特征名字七个字',
-				more:''
+				more:'',
+				checkInfo:{},
+				transId :'',
 			};
 		},
 		onLoad(query) {
@@ -83,9 +93,11 @@
 		    })
 			console.log(query);
 			this.collectionId = query.collectionId
+			this.transId = query.transId
 		},
 		onShow(){
 			this.getMoreData()
+			this.getCheckInfo()
 		},
 		onLaunch: function() {
 			console.log('App Launch');
@@ -122,6 +134,13 @@
 					this.more = this.moreData.data.data.more
 				})
 			},
+			async getCheckInfo(){
+				this.checkInfo = await uni.$http.get('/info/trans/check',{
+					transId : this.transId
+				})
+				console.log('this.checkInfo = ',this.checkInfo);
+			},
+			
 			isSpand(){
 				console.log();
 			}
@@ -191,5 +210,18 @@ overflow: hidden;
 .deawerBodyItem{
 	margin-top: 15rpx;
 	margin-bottom: 15rpx;
+}
+.deawerCard{
+	background-color: rgba(78, 87, 126, 100);
+	height: 300rpx;
+	padding-left: 40rpx;
+	color: white;
+	border: 2rpx solid;
+	border-radius: 20rpx;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-evenly;
 }
 </style>
