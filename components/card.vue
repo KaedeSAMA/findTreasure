@@ -96,7 +96,8 @@ export default {
 	font-weight: 600;
     width: 70%;
     min-height: 140rpx;
-    display: flex;
+    margin-left: 20rpx;
+	display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-evenly;

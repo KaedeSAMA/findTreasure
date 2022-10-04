@@ -1,6 +1,19 @@
 <template>
-	<view class="recommendRoot" :style="'height:'+screenHeight+'px'">
-		{{screenHeight}}
+	<view class="recommendRoot" :style="'height:'+(screenHeight-25)+'px'">
+		<!-- 中间的白色卡片 -->
+		<view class="whiteCard">
+			<!-- 时间部分 -->
+			<view class="date">
+				<view class="yearAndWeek">
+					
+				</view>
+				<view class="farmerDay">
+					
+				</view>
+			</view>
+			<!-- 图片部分 -->
+			<image :src="recommendData.img" mode="widthFix" class="img"></image>
+		</view>
 	</view>
 </template>
 
@@ -8,11 +21,26 @@
 	export default {
 		data() {
 			return {
-				screenHeight: getApp().globalData.screenHeight
+				screenHeight: getApp().globalData.screenHeight,
+				recommendData:{}
 			};
 		},
+		onLoad(){
+			this.getRecommend()
+		},
 		mounted(){
-			console.log(this.screenHeight);
+			// console.log(this.screenHeight);
+		},
+		methods:{
+			getRecommend(){
+				uni.$http.get('/recommend/img')
+				//收到获得图片信息后
+				.then((res)=>{
+					//debug
+					console.log(res.data.data);
+					this.recommendData = res.data.data
+				})
+			}
 		}
 
 	}
@@ -20,6 +48,34 @@
 
 <style lang="less">
 .recommendRoot{
-	
+	padding-top: 70rpx;
+	background-color: rgba(78, 87, 126, 100);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+.whiteCard{
+	width: 670rpx;
+	height: 85%;
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	.date{
+		width: 100%;
+		height: 14%;
+		border: 1px solid;
+		.yearAndWeek{
+			
+		}
+		.farmerDay{
+			
+		}
+	}
+}
+.img{
+	width: 60%;
 }
 </style>

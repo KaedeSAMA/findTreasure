@@ -8,7 +8,8 @@
             "path" : "pages/home/home",
             "style" : {
                 "navigationBarTitleText" : "",
-                "enablePullDownRefresh" : false
+                "enablePullDownRefresh" : false,
+				"onReachBottomDistance":126
             }
         },
         // {

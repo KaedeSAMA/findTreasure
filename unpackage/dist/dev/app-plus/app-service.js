@@ -112,6 +112,7 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
+    uSticky: __webpack_require__(/*! uview-ui/components/u-sticky/u-sticky.vue */ 295).default,
     "u-Image": __webpack_require__(/*! uview-ui/components/u--image/u--image.vue */ 5).default,
     uSearch: __webpack_require__(/*! uview-ui/components/u-search/u-search.vue */ 35).default,
     uTabs: __webpack_require__(/*! uview-ui/components/u-tabs/u-tabs.vue */ 41).default
@@ -146,102 +147,120 @@ var render = function() {
     },
     [
       _c(
-        "view",
-        { staticClass: _vm._$s(1, "sc", "findAndCamera"), attrs: { _i: 1 } },
+        "u-sticky",
+        {
+          attrs: { "offset-top": "0", bgColor: "rgba(78, 87, 126, 100)", _i: 1 }
+        },
         [
-          _c("u--image", {
-            attrs: {
-              src: "../../static/icon/homeIcon.png",
-              width: "104rpx",
-              height: "64rpx",
-              mode: "aspectFit",
-              _i: 2
-            }
+          _c("view", {
+            staticClass: _vm._$s(2, "sc", "before"),
+            attrs: { _i: 2 }
           }),
           _c(
             "view",
-            { staticClass: _vm._$s(3, "sc", "searchInput"), attrs: { _i: 3 } },
+            {
+              staticClass: _vm._$s(3, "sc", "findAndCamera"),
+              attrs: { _i: 3 }
+            },
             [
-              _c("u-search", {
-                attrs: { shape: "round", "show-action": false, _i: 4 }
+              _c("u--image", {
+                attrs: {
+                  src: "../../static/icon/homeIcon.png",
+                  width: "104rpx",
+                  height: "64rpx",
+                  mode: "aspectFit",
+                  _i: 4
+                }
+              }),
+              _c(
+                "view",
+                {
+                  staticClass: _vm._$s(5, "sc", "searchInput"),
+                  attrs: { _i: 5 }
+                },
+                [
+                  _c("u-search", {
+                    attrs: { shape: "round", "show-action": false, _i: 6 }
+                  })
+                ],
+                1
+              ),
+              _c("u--image", {
+                attrs: {
+                  src: "../../static/icon/camera.png",
+                  width: "40rpx",
+                  height: "40rpx",
+                  mode: "aspectFit",
+                  _i: 7
+                }
               })
             ],
             1
           ),
-          _c("u--image", {
-            attrs: {
-              src: "../../static/icon/camera.png",
-              width: "40rpx",
-              height: "40rpx",
-              mode: "aspectFit",
-              _i: 5
-            }
-          })
-        ],
-        1
-      ),
-      _c(
-        "view",
-        { staticClass: _vm._$s(6, "sc", "filter"), attrs: { _i: 6 } },
-        [
           _c(
-            "u-tabs",
-            {
-              attrs: {
-                list: _vm.filterList,
-                lineWidth: "40rpx",
-                activeStyle: {
-                  height: "60rpx",
-                  "font-size": "36rpx",
-                  color: "#EFEFEF",
-                  fontWeight: "bold",
-                  transform: "scale(1.1)"
-                },
-                inactiveStyle: {
-                  height: "60rpx",
-                  "font-size": "34rpx",
-                  color: "#EFEFEF",
-                  transform: "scale(1)"
-                },
-                itemStyle: "width:180rpx  height: 60rpx;",
-                scrollable: false,
-                _i: 7
-              },
-              on: {
-                click: function($event) {
-                  return _vm.changeTab($event)
-                }
-              }
-            },
+            "view",
+            { staticClass: _vm._$s(8, "sc", "filter"), attrs: { _i: 8 } },
             [
               _c(
-                "view",
+                "u-tabs",
                 {
-                  attrs: { _i: 8 },
+                  attrs: {
+                    list: _vm.filterList,
+                    lineWidth: "40rpx",
+                    activeStyle: {
+                      height: "60rpx",
+                      "font-size": "36rpx",
+                      color: "#EFEFEF",
+                      fontWeight: "bold",
+                      transform: "scale(1.1)"
+                    },
+                    inactiveStyle: {
+                      height: "60rpx",
+                      "font-size": "34rpx",
+                      color: "#EFEFEF",
+                      transform: "scale(1)"
+                    },
+                    itemStyle: "width:180rpx  height: 60rpx;",
+                    scrollable: false,
+                    _i: 9
+                  },
                   on: {
                     click: function($event) {
-                      return _vm.$u.toast("插槽被点击")
+                      return _vm.changeTab($event)
                     }
-                  },
-                  slot: "right"
+                  }
                 },
                 [
-                  _c("u--image", {
-                    attrs: {
-                      src: "../../static/icon/filter.png",
-                      width: "40rpx",
-                      height: "40rpx",
-                      mode: "aspectFit",
-                      _i: 9
-                    }
-                  })
-                ],
-                1
+                  _c(
+                    "view",
+                    {
+                      attrs: { _i: 10 },
+                      on: {
+                        click: function($event) {
+                          return _vm.$u.toast("插槽被点击")
+                        }
+                      },
+                      slot: "right"
+                    },
+                    [
+                      _c("u--image", {
+                        attrs: {
+                          src: "../../static/icon/filter.png",
+                          width: "40rpx",
+                          height: "40rpx",
+                          mode: "aspectFit",
+                          _i: 11
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]
               )
-            ]
+            ],
+            1
           )
-        ],
-        1
+        ]
       ),
       _c(
         "view",
@@ -250,37 +269,37 @@ var render = function() {
             {
               name: "show",
               rawName: "v-show",
-              value: _vm._$s(10, "v-show", _vm.cardListL[0] != null),
-              expression: "_$s(10,'v-show',cardListL[0] != null)"
+              value: _vm._$s(12, "v-show", _vm.cardListL[0] != null),
+              expression: "_$s(12,'v-show',cardListL[0] != null)"
             }
           ],
-          staticClass: _vm._$s(10, "sc", "mainCards"),
-          attrs: { _i: 10 }
+          staticClass: _vm._$s(12, "sc", "mainCards"),
+          attrs: { _i: 12 }
         },
         [
           _c(
             "view",
             {
               ref: "flowL",
-              staticClass: _vm._$s(11, "sc", "flowL"),
-              attrs: { _i: 11 }
+              staticClass: _vm._$s(13, "sc", "flowL"),
+              attrs: { _i: 13 }
             },
-            _vm._l(_vm._$s(12, "f", { forItems: _vm.cardListL }), function(
+            _vm._l(_vm._$s(14, "f", { forItems: _vm.cardListL }), function(
               item,
               $10,
               $20,
               $30
             ) {
               return _c("card", {
-                key: _vm._$s(12, "f", { forIndex: $20, key: item.id }),
-                staticClass: _vm._$s("12-" + $30, "sc", "card"),
+                key: _vm._$s(14, "f", { forIndex: $20, key: item.id }),
+                staticClass: _vm._$s("14-" + $30, "sc", "card"),
                 attrs: {
                   imgURL: item.img,
                   treasureId: item.id,
                   treasureName: item.name,
                   location: item.location,
                   charList: item.charList,
-                  _i: "12-" + $30
+                  _i: "14-" + $30
                 },
                 on: { click: function($event) {} }
               })
@@ -291,25 +310,25 @@ var render = function() {
             "view",
             {
               ref: "flowR",
-              staticClass: _vm._$s(13, "sc", "flowR"),
-              attrs: { _i: 13 }
+              staticClass: _vm._$s(15, "sc", "flowR"),
+              attrs: { _i: 15 }
             },
-            _vm._l(_vm._$s(14, "f", { forItems: _vm.cardListR }), function(
+            _vm._l(_vm._$s(16, "f", { forItems: _vm.cardListR }), function(
               item,
               $11,
               $21,
               $31
             ) {
               return _c("card", {
-                key: _vm._$s(14, "f", { forIndex: $21, key: item.id }),
-                staticClass: _vm._$s("14-" + $31, "sc", "card"),
+                key: _vm._$s(16, "f", { forIndex: $21, key: item.id }),
+                staticClass: _vm._$s("16-" + $31, "sc", "card"),
                 attrs: {
                   imgURL: item.img,
                   treasureId: item.id,
                   treasureName: item.name,
                   location: item.location,
                   charList: item.charList,
-                  _i: "14-" + $31
+                  _i: "16-" + $31
                 }
               })
             }),
@@ -317,7 +336,8 @@ var render = function() {
           )
         ]
       )
-    ]
+    ],
+    1
   )
 }
 var recyclableRender = false
@@ -4718,7 +4738,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _App
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("/* WEBPACK VAR INJECTION */(function(__f__) {Object.defineProperty(exports, \"__esModule\", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 20));\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvar _card = _interopRequireDefault(__webpack_require__(/*! ../../components/card.vue */ 56));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err);}_next(undefined);});};}var _default =\n{\n  data: function data() {\n    return {\n      filterList: [{\n        name: \"觅宝\" },\n\n      {\n        name: \"瓷器\" },\n\n      {\n        name: \"书法\" },\n\n      {\n        name: \"画作\" },\n\n      {\n        name: \"壁画\" }],\n\n\n      screenHeight: getApp().globalData.screenHeight,\n      cardListL: [],\n      cardListR: [] };\n\n\n  },\n  components: {\n    card: _card.default },\n\n  onShow: function onShow() {\n    this.screenHeight = getApp().globalData.screenHeight,\n    //debug\n    __f__(\"log\", 'screenHeight=', this.screenHeight, \" at pages/home/home.vue:81\");\n    this.getCardList();\n  },\n  onHide: function onHide() {\n    this.cardListL = [];\n    this.cardListR = [];\n  },\n  methods: {\n    changeTab: function changeTab(e) {\n      __f__(\"log\", e, \" at pages/home/home.vue:90\");\n    },\n    getCardList: function getCardList() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res, i;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (\n                  uni.$http.get(\"/home/info/all\"));case 2:res = _context.sent;\n                __f__(\"log\", res.data, \" at pages/home/home.vue:94\");\n                res.data.data.infoList.reverse();\n                i = 0;\n                res.data.data.infoList.map(function (val) {\n                  //把名字拆成字符数组，实现多于七个字的卡片名字部分隐藏\n                  var charNum = val.name.split(\"\");\n                  val.charList = charNum;\n                  if (i % 2 != 0) _this.cardListL.push(val);else\n                  _this.cardListR.push(val);\n                  // console.dir(this.cardListL);\n                  i++;\n                });case 7:case \"end\":return _context.stop();}}}, _callee);}))();\n    },\n    changePageTo: function changePageTo(val) {\n      uni.navigateTo({\n        url: val });\n\n    },\n    backPageTo: function backPageTo(val) {\n      uni.navigateBack({\n        delta: val });\n\n    } },\n\n  mounted: function mounted() {\n  } };exports.default = _default;\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/lib/format-log.js */ 55)[\"default\"]))//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vcGFnZXMvaG9tZS9ob21lLnZ1ZSJdLCJuYW1lcyI6WyJkYXRhIiwiZmlsdGVyTGlzdCIsIm5hbWUiLCJzY3JlZW5IZWlnaHQiLCJnZXRBcHAiLCJnbG9iYWxEYXRhIiwiY2FyZExpc3RMIiwiY2FyZExpc3RSIiwiY29tcG9uZW50cyIsImNhcmQiLCJvblNob3ciLCJnZXRDYXJkTGlzdCIsIm9uSGlkZSIsIm1ldGhvZHMiLCJjaGFuZ2VUYWIiLCJlIiwidW5pIiwiJGh0dHAiLCJnZXQiLCJyZXMiLCJpbmZvTGlzdCIsInJldmVyc2UiLCJpIiwibWFwIiwidmFsIiwiY2hhck51bSIsInNwbGl0IiwiY2hhckxpc3QiLCJwdXNoIiwiY2hhbmdlUGFnZVRvIiwibmF2aWdhdGVUbyIsInVybCIsImJhY2tQYWdlVG8iLCJuYXZpZ2F0ZUJhY2siLCJkZWx0YSIsIm1vdW50ZWQiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQWdEQSw2RjtBQUNlO0FBQ2RBLE1BRGMsa0JBQ1A7QUFDTixXQUFPO0FBQ05DLGdCQUFVLEVBQUUsQ0FBQztBQUNYQyxZQUFJLEVBQUUsSUFESyxFQUFEOztBQUdYO0FBQ0NBLFlBQUksRUFBRSxJQURQLEVBSFc7O0FBTVg7QUFDQ0EsWUFBSSxFQUFFLElBRFAsRUFOVzs7QUFTWDtBQUNDQSxZQUFJLEVBQUUsSUFEUCxFQVRXOztBQVlYO0FBQ0NBLFlBQUksRUFBRSxJQURQLEVBWlcsQ0FETjs7O0FBaUJOQyxrQkFBWSxFQUFFQyxNQUFNLEdBQUdDLFVBQVQsQ0FBb0JGLFlBakI1QjtBQWtCTkcsZUFBUyxFQUFFLEVBbEJMO0FBbUJOQyxlQUFTLEVBQUUsRUFuQkwsRUFBUDs7O0FBc0JBLEdBeEJhO0FBeUJkQyxZQUFVLEVBQUU7QUFDWEMsUUFBSSxFQUFKQSxhQURXLEVBekJFOztBQTRCZEMsUUE1QmMsb0JBNEJOO0FBQ1AsU0FBS1AsWUFBTCxHQUFvQkMsTUFBTSxHQUFHQyxVQUFULENBQW9CRixZQUF4QztBQUNBO0FBREEsaUJBRVksZUFGWixFQUU0QixLQUFLQSxZQUZqQztBQUdBLFNBQUtRLFdBQUw7QUFDQSxHQWpDYTtBQWtDZEMsUUFsQ2Msb0JBa0NOO0FBQ1AsU0FBS04sU0FBTCxHQUFpQixFQUFqQjtBQUNBLFNBQUtDLFNBQUwsR0FBaUIsRUFBakI7QUFDQSxHQXJDYTtBQXNDZE0sU0FBTyxFQUFFO0FBQ1JDLGFBRFEscUJBQ0VDLENBREYsRUFDSztBQUNaLG1CQUFZQSxDQUFaO0FBQ0EsS0FITztBQUlGSixlQUpFLHlCQUlZO0FBQ0RLLHFCQUFHLENBQUNDLEtBQUosQ0FBVUMsR0FBVixDQUFjLGdCQUFkLENBREMsU0FDYkMsR0FEYTtBQUVuQiw2QkFBWUEsR0FBRyxDQUFDbkIsSUFBaEI7QUFDQW1CLG1CQUFHLENBQUNuQixJQUFKLENBQVNBLElBQVQsQ0FBY29CLFFBQWQsQ0FBdUJDLE9BQXZCO0FBQ0lDLGlCQUplLEdBSVgsQ0FKVztBQUtuQkgsbUJBQUcsQ0FBQ25CLElBQUosQ0FBU0EsSUFBVCxDQUFjb0IsUUFBZCxDQUF1QkcsR0FBdkIsQ0FBMkIsVUFBQUMsR0FBRyxFQUFJO0FBQ2pDO0FBQ0Esc0JBQUlDLE9BQU8sR0FBR0QsR0FBRyxDQUFDdEIsSUFBSixDQUFTd0IsS0FBVCxDQUFlLEVBQWYsQ0FBZDtBQUNBRixxQkFBRyxDQUFDRyxRQUFKLEdBQWVGLE9BQWY7QUFDQSxzQkFBSUgsQ0FBQyxHQUFHLENBQUosSUFBUyxDQUFiLEVBQWdCLEtBQUksQ0FBQ2hCLFNBQUwsQ0FBZXNCLElBQWYsQ0FBb0JKLEdBQXBCLEVBQWhCO0FBQ0ssdUJBQUksQ0FBQ2pCLFNBQUwsQ0FBZXFCLElBQWYsQ0FBb0JKLEdBQXBCO0FBQ0w7QUFDQUYsbUJBQUM7QUFDRCxpQkFSRCxFQUxtQjtBQWNuQixLQWxCTztBQW1CUk8sZ0JBbkJRLHdCQW1CS0wsR0FuQkwsRUFtQlU7QUFDakJSLFNBQUcsQ0FBQ2MsVUFBSixDQUFlO0FBQ2RDLFdBQUcsRUFBRVAsR0FEUyxFQUFmOztBQUdBLEtBdkJPO0FBd0JSUSxjQXhCUSxzQkF3QkdSLEdBeEJILEVBd0JRO0FBQ2ZSLFNBQUcsQ0FBQ2lCLFlBQUosQ0FBaUI7QUFDaEJDLGFBQUssRUFBRVYsR0FEUyxFQUFqQjs7QUFHQSxLQTVCTyxFQXRDSzs7QUFvRWRXLFNBcEVjLHFCQW9FSjtBQUNULEdBckVhLEUiLCJmaWxlIjoiNTQuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cblxuaW1wb3J0IGNhcmQgZnJvbSBcIi4uLy4uL2NvbXBvbmVudHMvY2FyZC52dWVcIjtcbmV4cG9ydCBkZWZhdWx0IHtcblx0ZGF0YSgpIHtcblx0XHRyZXR1cm4ge1xuXHRcdFx0ZmlsdGVyTGlzdDogW3tcblx0XHRcdFx0XHRuYW1lOiBcIuinheWunVwiXG5cdFx0XHRcdH0sXG5cdFx0XHRcdHtcblx0XHRcdFx0XHRuYW1lOiBcIueTt+WZqFwiXG5cdFx0XHRcdH0sXG5cdFx0XHRcdHtcblx0XHRcdFx0XHRuYW1lOiBcIuS5puazlVwiXG5cdFx0XHRcdH0sXG5cdFx0XHRcdHtcblx0XHRcdFx0XHRuYW1lOiBcIueUu+S9nFwiXG5cdFx0XHRcdH0sXG5cdFx0XHRcdHtcblx0XHRcdFx0XHRuYW1lOiBcIuWjgeeUu1wiXG5cdFx0XHRcdH1cblx0XHRcdF0sXG5cdFx0XHRzY3JlZW5IZWlnaHQ6IGdldEFwcCgpLmdsb2JhbERhdGEuc2NyZWVuSGVpZ2h0LFxuXHRcdFx0Y2FyZExpc3RMOiBbXSxcblx0XHRcdGNhcmRMaXN0UjogW10sXG5cblx0XHR9O1xuXHR9LFxuXHRjb21wb25lbnRzOiB7XG5cdFx0Y2FyZFxuXHR9LFxuXHRvblNob3coKXtcblx0XHR0aGlzLnNjcmVlbkhlaWdodCA9IGdldEFwcCgpLmdsb2JhbERhdGEuc2NyZWVuSGVpZ2h0LFxuXHRcdC8vZGVidWdcblx0XHRjb25zb2xlLmxvZygnc2NyZWVuSGVpZ2h0PScsdGhpcy5zY3JlZW5IZWlnaHQpO1xuXHRcdHRoaXMuZ2V0Q2FyZExpc3QoKTtcblx0fSxcblx0b25IaWRlKCl7XG5cdFx0dGhpcy5jYXJkTGlzdEwgPSBbXVxuXHRcdHRoaXMuY2FyZExpc3RSID0gW11cblx0fSxcblx0bWV0aG9kczoge1xuXHRcdGNoYW5nZVRhYihlKSB7XG5cdFx0XHRjb25zb2xlLmxvZyhlKTtcblx0XHR9LFxuXHRcdGFzeW5jIGdldENhcmRMaXN0KCkge1xuXHRcdFx0Y29uc3QgcmVzID0gYXdhaXQgdW5pLiRodHRwLmdldChcIi9ob21lL2luZm8vYWxsXCIpO1xuXHRcdFx0Y29uc29sZS5sb2cocmVzLmRhdGEpO1xuXHRcdFx0cmVzLmRhdGEuZGF0YS5pbmZvTGlzdC5yZXZlcnNlKCk7XG5cdFx0XHRsZXQgaSA9IDA7XG5cdFx0XHRyZXMuZGF0YS5kYXRhLmluZm9MaXN0Lm1hcCh2YWwgPT4ge1xuXHRcdFx0XHQvL+aKiuWQjeWtl+aLhuaIkOWtl+espuaVsOe7hO+8jOWunueOsOWkmuS6juS4g+S4quWtl+eahOWNoeeJh+WQjeWtl+mDqOWIhumakOiXj1xuXHRcdFx0XHRsZXQgY2hhck51bSA9IHZhbC5uYW1lLnNwbGl0KFwiXCIpO1xuXHRcdFx0XHR2YWwuY2hhckxpc3QgPSBjaGFyTnVtO1xuXHRcdFx0XHRpZiAoaSAlIDIgIT0gMCkgdGhpcy5jYXJkTGlzdEwucHVzaCh2YWwpO1xuXHRcdFx0XHRlbHNlIHRoaXMuY2FyZExpc3RSLnB1c2godmFsKTtcblx0XHRcdFx0Ly8gY29uc29sZS5kaXIodGhpcy5jYXJkTGlzdEwpO1xuXHRcdFx0XHRpKys7XG5cdFx0XHR9KTtcblx0XHR9LFxuXHRcdGNoYW5nZVBhZ2VUbyh2YWwpIHtcblx0XHRcdHVuaS5uYXZpZ2F0ZVRvKHtcblx0XHRcdFx0dXJsOiB2YWxcblx0XHRcdH0pXG5cdFx0fSxcblx0XHRiYWNrUGFnZVRvKHZhbCkge1xuXHRcdFx0dW5pLm5hdmlnYXRlQmFjayh7XG5cdFx0XHRcdGRlbHRhOiB2YWxcblx0XHRcdH0pO1xuXHRcdH1cblx0fSxcblx0bW91bnRlZCgpIHtcblx0fVxufTtcbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///54\n");
+eval("/* WEBPACK VAR INJECTION */(function(__f__) {Object.defineProperty(exports, \"__esModule\", { value: true });exports.default = void 0;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvar _card = _interopRequireDefault(__webpack_require__(/*! ../../components/card.vue */ 56));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\nvar _default = { data: function data() {return { filterList: [{ name: \"觅宝\" }, { name: \"瓷器\" }, { name: \"书法\" }, { name: \"画作\" }, { name: \"壁画\" }], screenHeight: getApp().globalData.screenHeight, cardListL: [], cardListR: [], page: 1 };}, components: { card: _card.default }, onShow: function onShow() {this.screenHeight = getApp().globalData.screenHeight, //debug\n    __f__(\"log\", 'screenHeight=', this.screenHeight, \" at pages/home/home.vue:88\");this.getCardList();}, onHide: function onHide() {this.initHome();}, onReachBottom: function onReachBottom() {this.getCardList();}, methods: { changeTab: function changeTab(e) {__f__(\"log\", e, \" at pages/home/home.vue:99\");}, getCardList: function getCardList() {var _this = this;uni.$http.get(\"/home/info/all\", { pageNum: this.page }).then(function (res) {__f__(\"log\", res.data, \" at pages/home/home.vue:105\");res.data.data.infoList.reverse();var i = 0;res.data.data.infoList.map(function (val) {//把名字拆成字符数组，实现多于七个字的卡片名字部分隐藏\n          var charNum = val.name.split(\"\");\n          val.charList = charNum;\n          if (i % 2 != 0) _this.cardListL.push(val);else\n          _this.cardListR.push(val);\n          // console.dir(this.cardListL);\n          i++;\n        });\n        if (res.data.data.infoList.length != 0) {\n          _this.page++;\n        } else {\n          uni.$u.toast('暂无更多内容');\n        }\n      });\n\n    },\n    initHome: function initHome() {\n      this.cardListL = [];\n      this.cardListR = [];\n      this.page = 1;\n    },\n    changePageTo: function changePageTo(val) {\n      uni.navigateTo({\n        url: val });\n\n    },\n    backPageTo: function backPageTo(val) {\n      uni.navigateBack({\n        delta: val });\n\n    } },\n\n  mounted: function mounted() {\n  } };exports.default = _default;\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/lib/format-log.js */ 55)[\"default\"]))//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vcGFnZXMvaG9tZS9ob21lLnZ1ZSJdLCJuYW1lcyI6WyJkYXRhIiwiZmlsdGVyTGlzdCIsIm5hbWUiLCJzY3JlZW5IZWlnaHQiLCJnZXRBcHAiLCJnbG9iYWxEYXRhIiwiY2FyZExpc3RMIiwiY2FyZExpc3RSIiwicGFnZSIsImNvbXBvbmVudHMiLCJjYXJkIiwib25TaG93IiwiZ2V0Q2FyZExpc3QiLCJvbkhpZGUiLCJpbml0SG9tZSIsIm9uUmVhY2hCb3R0b20iLCJtZXRob2RzIiwiY2hhbmdlVGFiIiwiZSIsInVuaSIsIiRodHRwIiwiZ2V0IiwicGFnZU51bSIsInRoZW4iLCJyZXMiLCJpbmZvTGlzdCIsInJldmVyc2UiLCJpIiwibWFwIiwidmFsIiwiY2hhck51bSIsInNwbGl0IiwiY2hhckxpc3QiLCJwdXNoIiwibGVuZ3RoIiwiJHUiLCJ0b2FzdCIsImNoYW5nZVBhZ2VUbyIsIm5hdmlnYXRlVG8iLCJ1cmwiLCJiYWNrUGFnZVRvIiwibmF2aWdhdGVCYWNrIiwiZGVsdGEiLCJtb3VudGVkIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFzREEsNkYsOEZBdERBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7ZUFHZSxFQUNkQSxJQURjLGtCQUNQLENBQ04sT0FBTyxFQUNOQyxVQUFVLEVBQUUsQ0FBQyxFQUNYQyxJQUFJLEVBQUUsSUFESyxFQUFELEVBR1gsRUFDQ0EsSUFBSSxFQUFFLElBRFAsRUFIVyxFQU1YLEVBQ0NBLElBQUksRUFBRSxJQURQLEVBTlcsRUFTWCxFQUNDQSxJQUFJLEVBQUUsSUFEUCxFQVRXLEVBWVgsRUFDQ0EsSUFBSSxFQUFFLElBRFAsRUFaVyxDQUROLEVBaUJOQyxZQUFZLEVBQUVDLE1BQU0sR0FBR0MsVUFBVCxDQUFvQkYsWUFqQjVCLEVBa0JORyxTQUFTLEVBQUUsRUFsQkwsRUFtQk5DLFNBQVMsRUFBRSxFQW5CTCxFQW9CTkMsSUFBSSxFQUFDLENBcEJDLEVBQVAsQ0F1QkEsQ0F6QmEsRUEwQmRDLFVBQVUsRUFBRSxFQUNYQyxJQUFJLEVBQUpBLGFBRFcsRUExQkUsRUE2QmRDLE1BN0JjLG9CQTZCTixDQUNQLEtBQUtSLFlBQUwsR0FBb0JDLE1BQU0sR0FBR0MsVUFBVCxDQUFvQkYsWUFBeEMsRUFDQTtBQURBLGlCQUVZLGVBRlosRUFFNEIsS0FBS0EsWUFGakMsZ0NBR0EsS0FBS1MsV0FBTCxHQUNBLENBbENhLEVBbUNkQyxNQW5DYyxvQkFtQ04sQ0FDUCxLQUFLQyxRQUFMLEdBQ0EsQ0FyQ2EsRUFzQ2RDLGFBdENjLDJCQXNDQyxDQUNkLEtBQUtILFdBQUwsR0FDQSxDQXhDYSxFQXlDZEksT0FBTyxFQUFFLEVBQ1JDLFNBRFEscUJBQ0VDLENBREYsRUFDSyxDQUNaLGFBQVlBLENBQVosZ0NBQ0EsQ0FITyxFQUlSTixXQUpRLHlCQUlNLGtCQUNiTyxHQUFHLENBQUNDLEtBQUosQ0FBVUMsR0FBVixDQUFjLGdCQUFkLEVBQStCLEVBQzlCQyxPQUFPLEVBQUcsS0FBS2QsSUFEZSxFQUEvQixFQUVHZSxJQUZILENBRVEsVUFBQ0MsR0FBRCxFQUFPLENBQ2QsYUFBWUEsR0FBRyxDQUFDeEIsSUFBaEIsaUNBQ0F3QixHQUFHLENBQUN4QixJQUFKLENBQVNBLElBQVQsQ0FBY3lCLFFBQWQsQ0FBdUJDLE9BQXZCLEdBQ0EsSUFBSUMsQ0FBQyxHQUFHLENBQVIsQ0FDQUgsR0FBRyxDQUFDeEIsSUFBSixDQUFTQSxJQUFULENBQWN5QixRQUFkLENBQXVCRyxHQUF2QixDQUEyQixVQUFBQyxHQUFHLEVBQUksQ0FDakM7QUFDQSxjQUFJQyxPQUFPLEdBQUdELEdBQUcsQ0FBQzNCLElBQUosQ0FBUzZCLEtBQVQsQ0FBZSxFQUFmLENBQWQ7QUFDQUYsYUFBRyxDQUFDRyxRQUFKLEdBQWVGLE9BQWY7QUFDQSxjQUFJSCxDQUFDLEdBQUcsQ0FBSixJQUFTLENBQWIsRUFBZ0IsS0FBSSxDQUFDckIsU0FBTCxDQUFlMkIsSUFBZixDQUFvQkosR0FBcEIsRUFBaEI7QUFDSyxlQUFJLENBQUN0QixTQUFMLENBQWUwQixJQUFmLENBQW9CSixHQUFwQjtBQUNMO0FBQ0FGLFdBQUM7QUFDRCxTQVJEO0FBU0EsWUFBR0gsR0FBRyxDQUFDeEIsSUFBSixDQUFTQSxJQUFULENBQWN5QixRQUFkLENBQXVCUyxNQUF2QixJQUFpQyxDQUFwQyxFQUFzQztBQUNyQyxlQUFJLENBQUMxQixJQUFMO0FBQ0EsU0FGRCxNQUVLO0FBQ0pXLGFBQUcsQ0FBQ2dCLEVBQUosQ0FBT0MsS0FBUCxDQUFhLFFBQWI7QUFDQTtBQUNELE9BcEJEOztBQXNCQSxLQTNCTztBQTRCUnRCLFlBNUJRLHNCQTRCRTtBQUNULFdBQUtSLFNBQUwsR0FBaUIsRUFBakI7QUFDQSxXQUFLQyxTQUFMLEdBQWlCLEVBQWpCO0FBQ0EsV0FBS0MsSUFBTCxHQUFZLENBQVo7QUFDQSxLQWhDTztBQWlDUjZCLGdCQWpDUSx3QkFpQ0tSLEdBakNMLEVBaUNVO0FBQ2pCVixTQUFHLENBQUNtQixVQUFKLENBQWU7QUFDZEMsV0FBRyxFQUFFVixHQURTLEVBQWY7O0FBR0EsS0FyQ087QUFzQ1JXLGNBdENRLHNCQXNDR1gsR0F0Q0gsRUFzQ1E7QUFDZlYsU0FBRyxDQUFDc0IsWUFBSixDQUFpQjtBQUNoQkMsYUFBSyxFQUFFYixHQURTLEVBQWpCOztBQUdBLEtBMUNPLEVBekNLOztBQXFGZGMsU0FyRmMscUJBcUZKO0FBQ1QsR0F0RmEsRSIsImZpbGUiOiI1NC5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuLy9cbi8vXG4vL1xuXG5pbXBvcnQgY2FyZCBmcm9tIFwiLi4vLi4vY29tcG9uZW50cy9jYXJkLnZ1ZVwiO1xuZXhwb3J0IGRlZmF1bHQge1xuXHRkYXRhKCkge1xuXHRcdHJldHVybiB7XG5cdFx0XHRmaWx0ZXJMaXN0OiBbe1xuXHRcdFx0XHRcdG5hbWU6IFwi6KeF5a6dXCJcblx0XHRcdFx0fSxcblx0XHRcdFx0e1xuXHRcdFx0XHRcdG5hbWU6IFwi55O35ZmoXCJcblx0XHRcdFx0fSxcblx0XHRcdFx0e1xuXHRcdFx0XHRcdG5hbWU6IFwi5Lmm5rOVXCJcblx0XHRcdFx0fSxcblx0XHRcdFx0e1xuXHRcdFx0XHRcdG5hbWU6IFwi55S75L2cXCJcblx0XHRcdFx0fSxcblx0XHRcdFx0e1xuXHRcdFx0XHRcdG5hbWU6IFwi5aOB55S7XCJcblx0XHRcdFx0fVxuXHRcdFx0XSxcblx0XHRcdHNjcmVlbkhlaWdodDogZ2V0QXBwKCkuZ2xvYmFsRGF0YS5zY3JlZW5IZWlnaHQsXG5cdFx0XHRjYXJkTGlzdEw6IFtdLFxuXHRcdFx0Y2FyZExpc3RSOiBbXSxcblx0XHRcdHBhZ2U6MSxcblxuXHRcdH07XG5cdH0sXG5cdGNvbXBvbmVudHM6IHtcblx0XHRjYXJkXG5cdH0sXG5cdG9uU2hvdygpe1xuXHRcdHRoaXMuc2NyZWVuSGVpZ2h0ID0gZ2V0QXBwKCkuZ2xvYmFsRGF0YS5zY3JlZW5IZWlnaHQsXG5cdFx0Ly9kZWJ1Z1xuXHRcdGNvbnNvbGUubG9nKCdzY3JlZW5IZWlnaHQ9Jyx0aGlzLnNjcmVlbkhlaWdodCk7XG5cdFx0dGhpcy5nZXRDYXJkTGlzdCgpO1xuXHR9LFxuXHRvbkhpZGUoKXtcblx0XHR0aGlzLmluaXRIb21lKClcblx0fSxcblx0b25SZWFjaEJvdHRvbSgpe1xuXHRcdHRoaXMuZ2V0Q2FyZExpc3QoKVxuXHR9LFxuXHRtZXRob2RzOiB7XG5cdFx0Y2hhbmdlVGFiKGUpIHtcblx0XHRcdGNvbnNvbGUubG9nKGUpO1xuXHRcdH0sXG5cdFx0Z2V0Q2FyZExpc3QoKSB7XG5cdFx0XHR1bmkuJGh0dHAuZ2V0KFwiL2hvbWUvaW5mby9hbGxcIix7XG5cdFx0XHRcdHBhZ2VOdW0gOiB0aGlzLnBhZ2Vcblx0XHRcdH0pLnRoZW4oKHJlcyk9Pntcblx0XHRcdFx0Y29uc29sZS5sb2cocmVzLmRhdGEpO1xuXHRcdFx0XHRyZXMuZGF0YS5kYXRhLmluZm9MaXN0LnJldmVyc2UoKTtcblx0XHRcdFx0bGV0IGkgPSAwOyBcblx0XHRcdFx0cmVzLmRhdGEuZGF0YS5pbmZvTGlzdC5tYXAodmFsID0+IHtcblx0XHRcdFx0XHQvL+aKiuWQjeWtl+aLhuaIkOWtl+espuaVsOe7hO+8jOWunueOsOWkmuS6juS4g+S4quWtl+eahOWNoeeJh+WQjeWtl+mDqOWIhumakOiXj1xuXHRcdFx0XHRcdGxldCBjaGFyTnVtID0gdmFsLm5hbWUuc3BsaXQoXCJcIik7XG5cdFx0XHRcdFx0dmFsLmNoYXJMaXN0ID0gY2hhck51bTtcblx0XHRcdFx0XHRpZiAoaSAlIDIgIT0gMCkgdGhpcy5jYXJkTGlzdEwucHVzaCh2YWwpO1xuXHRcdFx0XHRcdGVsc2UgdGhpcy5jYXJkTGlzdFIucHVzaCh2YWwpO1xuXHRcdFx0XHRcdC8vIGNvbnNvbGUuZGlyKHRoaXMuY2FyZExpc3RMKTtcblx0XHRcdFx0XHRpKys7XG5cdFx0XHRcdH0pO1xuXHRcdFx0XHRpZihyZXMuZGF0YS5kYXRhLmluZm9MaXN0Lmxlbmd0aCAhPSAwKXtcblx0XHRcdFx0XHR0aGlzLnBhZ2UrK1xuXHRcdFx0XHR9ZWxzZXtcblx0XHRcdFx0XHR1bmkuJHUudG9hc3QoJ+aaguaXoOabtOWkmuWGheWuuScpXG5cdFx0XHRcdH1cblx0XHRcdH0pO1xuXG5cdFx0fSxcblx0XHRpbml0SG9tZSgpe1xuXHRcdFx0dGhpcy5jYXJkTGlzdEwgPSBbXVxuXHRcdFx0dGhpcy5jYXJkTGlzdFIgPSBbXVxuXHRcdFx0dGhpcy5wYWdlID0gMVxuXHRcdH0sXG5cdFx0Y2hhbmdlUGFnZVRvKHZhbCkge1xuXHRcdFx0dW5pLm5hdmlnYXRlVG8oe1xuXHRcdFx0XHR1cmw6IHZhbFxuXHRcdFx0fSlcblx0XHR9LFxuXHRcdGJhY2tQYWdlVG8odmFsKSB7XG5cdFx0XHR1bmkubmF2aWdhdGVCYWNrKHtcblx0XHRcdFx0ZGVsdGE6IHZhbFxuXHRcdFx0fSk7XG5cdFx0fVxuXHR9LFxuXHRtb3VudGVkKCkge1xuXHR9XG59O1xuIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///54\n");
 
 /***/ }),
 /* 55 */
@@ -20511,10 +20531,35 @@ var render = function() {
     "view",
     {
       staticClass: _vm._$s(0, "sc", "recommendRoot"),
-      style: _vm._$s(0, "s", "height:" + _vm.screenHeight + "px"),
+      style: _vm._$s(0, "s", "height:" + (_vm.screenHeight - 25) + "px"),
       attrs: { _i: 0 }
     },
-    [_vm._v(_vm._$s(0, "t0-0", _vm._s(_vm.screenHeight)))]
+    [
+      _c(
+        "view",
+        { staticClass: _vm._$s(1, "sc", "whiteCard"), attrs: { _i: 1 } },
+        [
+          _c(
+            "view",
+            { staticClass: _vm._$s(2, "sc", "date"), attrs: { _i: 2 } },
+            [
+              _c("view", {
+                staticClass: _vm._$s(3, "sc", "yearAndWeek"),
+                attrs: { _i: 3 }
+              }),
+              _c("view", {
+                staticClass: _vm._$s(4, "sc", "farmerDay"),
+                attrs: { _i: 4 }
+              })
+            ]
+          ),
+          _c("image", {
+            staticClass: _vm._$s(5, "sc", "img"),
+            attrs: { src: _vm._$s(5, "a-src", _vm.recommendData.img), _i: 5 }
+          })
+        ]
+      )
+    ]
   )
 }
 var recyclableRender = false
@@ -20543,7 +20588,385 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _App
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("/* WEBPACK VAR INJECTION */(function(__f__) {Object.defineProperty(exports, \"__esModule\", { value: true });exports.default = void 0; //\n//\n//\n//\n//\n//\nvar _default =\n{\n  data: function data() {\n    return {\n      screenHeight: getApp().globalData.screenHeight };\n\n  },\n  mounted: function mounted() {\n    __f__(\"log\", this.screenHeight, \" at pages/recommend/recommend.vue:15\");\n  } };exports.default = _default;\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/lib/format-log.js */ 55)[\"default\"]))//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vcGFnZXMvcmVjb21tZW5kL3JlY29tbWVuZC52dWUiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQU9BO0FBQ0EsTUFEQSxrQkFDQTtBQUNBO0FBQ0Esb0RBREE7O0FBR0EsR0FMQTtBQU1BLFNBTkEscUJBTUE7QUFDQTtBQUNBLEdBUkEsRSIsImZpbGUiOiIyOTQuanMiLCJzb3VyY2VzQ29udGVudCI6WyI8dGVtcGxhdGU+XG5cdDx2aWV3IGNsYXNzPVwicmVjb21tZW5kUm9vdFwiIDpzdHlsZT1cIidoZWlnaHQ6JytzY3JlZW5IZWlnaHQrJ3B4J1wiPlxuXHRcdHt7c2NyZWVuSGVpZ2h0fX1cblx0PC92aWV3PlxuPC90ZW1wbGF0ZT5cblxuPHNjcmlwdD5cblx0ZXhwb3J0IGRlZmF1bHQge1xuXHRcdGRhdGEoKSB7XG5cdFx0XHRyZXR1cm4ge1xuXHRcdFx0XHRzY3JlZW5IZWlnaHQ6IGdldEFwcCgpLmdsb2JhbERhdGEuc2NyZWVuSGVpZ2h0XG5cdFx0XHR9O1xuXHRcdH0sXG5cdFx0bW91bnRlZCgpe1xuXHRcdFx0Y29uc29sZS5sb2codGhpcy5zY3JlZW5IZWlnaHQpO1xuXHRcdH1cblxuXHR9XG48L3NjcmlwdD5cblxuPHN0eWxlIGxhbmc9XCJsZXNzXCI+XG4ucmVjb21tZW5kUm9vdHtcblx0XG59XG48L3N0eWxlPlxuIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///294\n");
+eval("/* WEBPACK VAR INJECTION */(function(__f__) {Object.defineProperty(exports, \"__esModule\", { value: true });exports.default = void 0; //\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\nvar _default =\n{\n  data: function data() {\n    return {\n      screenHeight: getApp().globalData.screenHeight,\n      recommendData: {} };\n\n  },\n  onLoad: function onLoad() {\n    this.getRecommend();\n  },\n  mounted: function mounted() {\n    // console.log(this.screenHeight);\n  },\n  methods: {\n    getRecommend: function getRecommend() {var _this = this;\n      uni.$http.get('/recommend/img')\n      //收到获得图片信息后\n      .then(function (res) {\n        //debug\n        __f__(\"log\", res.data.data, \" at pages/recommend/recommend.vue:40\");\n        _this.recommendData = res.data.data;\n      });\n    } } };exports.default = _default;\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/lib/format-log.js */ 55)[\"default\"]))//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vcGFnZXMvcmVjb21tZW5kL3JlY29tbWVuZC52dWUiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFvQkE7QUFDQSxNQURBLGtCQUNBO0FBQ0E7QUFDQSxvREFEQTtBQUVBLHVCQUZBOztBQUlBLEdBTkE7QUFPQSxRQVBBLG9CQU9BO0FBQ0E7QUFDQSxHQVRBO0FBVUEsU0FWQSxxQkFVQTtBQUNBO0FBQ0EsR0FaQTtBQWFBO0FBQ0EsZ0JBREEsMEJBQ0E7QUFDQTtBQUNBO0FBREEsT0FFQSxJQUZBLENBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQSxPQU5BO0FBT0EsS0FUQSxFQWJBLEUiLCJmaWxlIjoiMjk0LmpzIiwic291cmNlc0NvbnRlbnQiOlsiPHRlbXBsYXRlPlxuXHQ8dmlldyBjbGFzcz1cInJlY29tbWVuZFJvb3RcIiA6c3R5bGU9XCInaGVpZ2h0OicrKHNjcmVlbkhlaWdodC0yNSkrJ3B4J1wiPlxuXHRcdDwhLS0g5Lit6Ze055qE55m96Imy5Y2h54mHIC0tPlxuXHRcdDx2aWV3IGNsYXNzPVwid2hpdGVDYXJkXCI+XG5cdFx0XHQ8IS0tIOaXtumXtOmDqOWIhiAtLT5cblx0XHRcdDx2aWV3IGNsYXNzPVwiZGF0ZVwiPlxuXHRcdFx0XHQ8dmlldyBjbGFzcz1cInllYXJBbmRXZWVrXCI+XG5cdFx0XHRcdFx0XG5cdFx0XHRcdDwvdmlldz5cblx0XHRcdFx0PHZpZXcgY2xhc3M9XCJmYXJtZXJEYXlcIj5cblx0XHRcdFx0XHRcblx0XHRcdFx0PC92aWV3PlxuXHRcdFx0PC92aWV3PlxuXHRcdFx0PCEtLSDlm77niYfpg6jliIYgLS0+XG5cdFx0XHQ8aW1hZ2UgOnNyYz1cInJlY29tbWVuZERhdGEuaW1nXCIgbW9kZT1cIndpZHRoRml4XCIgY2xhc3M9XCJpbWdcIj48L2ltYWdlPlxuXHRcdDwvdmlldz5cblx0PC92aWV3PlxuPC90ZW1wbGF0ZT5cblxuPHNjcmlwdD5cblx0ZXhwb3J0IGRlZmF1bHQge1xuXHRcdGRhdGEoKSB7XG5cdFx0XHRyZXR1cm4ge1xuXHRcdFx0XHRzY3JlZW5IZWlnaHQ6IGdldEFwcCgpLmdsb2JhbERhdGEuc2NyZWVuSGVpZ2h0LFxuXHRcdFx0XHRyZWNvbW1lbmREYXRhOnt9XG5cdFx0XHR9O1xuXHRcdH0sXG5cdFx0b25Mb2FkKCl7XG5cdFx0XHR0aGlzLmdldFJlY29tbWVuZCgpXG5cdFx0fSxcblx0XHRtb3VudGVkKCl7XG5cdFx0XHQvLyBjb25zb2xlLmxvZyh0aGlzLnNjcmVlbkhlaWdodCk7XG5cdFx0fSxcblx0XHRtZXRob2RzOntcblx0XHRcdGdldFJlY29tbWVuZCgpe1xuXHRcdFx0XHR1bmkuJGh0dHAuZ2V0KCcvcmVjb21tZW5kL2ltZycpXG5cdFx0XHRcdC8v5pS25Yiw6I635b6X5Zu+54mH5L+h5oGv5ZCOXG5cdFx0XHRcdC50aGVuKChyZXMpPT57XG5cdFx0XHRcdFx0Ly9kZWJ1Z1xuXHRcdFx0XHRcdGNvbnNvbGUubG9nKHJlcy5kYXRhLmRhdGEpO1xuXHRcdFx0XHRcdHRoaXMucmVjb21tZW5kRGF0YSA9IHJlcy5kYXRhLmRhdGFcblx0XHRcdFx0fSlcblx0XHRcdH1cblx0XHR9XG5cblx0fVxuPC9zY3JpcHQ+XG5cbjxzdHlsZSBsYW5nPVwibGVzc1wiPlxuLnJlY29tbWVuZFJvb3R7XG5cdHBhZGRpbmctdG9wOiA3MHJweDtcblx0YmFja2dyb3VuZC1jb2xvcjogcmdiYSg3OCwgODcsIDEyNiwgMTAwKTtcblx0ZGlzcGxheTogZmxleDtcblx0ZmxleC1kaXJlY3Rpb246IHJvdztcblx0YWxpZ24taXRlbXM6IGNlbnRlcjtcblx0anVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG59XG4ud2hpdGVDYXJke1xuXHR3aWR0aDogNjcwcnB4O1xuXHRoZWlnaHQ6IDg1JTtcblx0YmFja2dyb3VuZC1jb2xvcjogI2ZmZjtcblx0ZGlzcGxheTogZmxleDtcblx0ZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcblx0YWxpZ24taXRlbXM6IGNlbnRlcjtcblx0anVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuXHQuZGF0ZXtcblx0XHR3aWR0aDogMTAwJTtcblx0XHRoZWlnaHQ6IDE0JTtcblx0XHRib3JkZXI6IDFweCBzb2xpZDtcblx0XHQueWVhckFuZFdlZWt7XG5cdFx0XHRcblx0XHR9XG5cdFx0LmZhcm1lckRheXtcblx0XHRcdFxuXHRcdH1cblx0fVxufVxuLmltZ3tcblx0d2lkdGg6IDYwJTtcbn1cbjwvc3R5bGU+XG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///294\n");
+
+/***/ }),
+/* 295 */
+/*!*************************************************************************************************************!*\
+  !*** /Users/hanachan/Documents/Project/findTreasure/node_modules/uview-ui/components/u-sticky/u-sticky.vue ***!
+  \*************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _u_sticky_vue_vue_type_template_id_c187ecf2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./u-sticky.vue?vue&type=template&id=c187ecf2&scoped=true& */ 296);
+/* harmony import */ var _u_sticky_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./u-sticky.vue?vue&type=script&lang=js& */ 298);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _u_sticky_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _u_sticky_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js */ 24);
+
+var renderjs
+
+
+
+
+/* normalize component */
+
+var component = Object(_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _u_sticky_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _u_sticky_vue_vue_type_template_id_c187ecf2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _u_sticky_vue_vue_type_template_id_c187ecf2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "c187ecf2",
+  null,
+  false,
+  _u_sticky_vue_vue_type_template_id_c187ecf2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["components"],
+  renderjs
+)
+
+component.options.__file = "node_modules/uview-ui/components/u-sticky/u-sticky.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+/* 296 */
+/*!********************************************************************************************************************************************************!*\
+  !*** /Users/hanachan/Documents/Project/findTreasure/node_modules/uview-ui/components/u-sticky/u-sticky.vue?vue&type=template&id=c187ecf2&scoped=true& ***!
+  \********************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns, recyclableRender, components */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_10_0_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_u_sticky_vue_vue_type_template_id_c187ecf2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--10-0!../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/filter-modules-template.js!../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./u-sticky.vue?vue&type=template&id=c187ecf2&scoped=true& */ 297);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_10_0_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_u_sticky_vue_vue_type_template_id_c187ecf2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_10_0_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_u_sticky_vue_vue_type_template_id_c187ecf2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_10_0_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_u_sticky_vue_vue_type_template_id_c187ecf2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["recyclableRender"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "components", function() { return _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_10_0_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_filter_modules_template_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_page_meta_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_u_sticky_vue_vue_type_template_id_c187ecf2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["components"]; });
+
+
+
+/***/ }),
+/* 297 */
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--10-0!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/filter-modules-template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!/Users/hanachan/Documents/Project/findTreasure/node_modules/uview-ui/components/u-sticky/u-sticky.vue?vue&type=template&id=c187ecf2&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns, recyclableRender, components */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
+var components
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "view",
+    {
+      staticClass: _vm._$s(0, "sc", "u-sticky"),
+      style: _vm._$s(0, "s", [_vm.style]),
+      attrs: { id: _vm._$s(0, "a-id", _vm.elId), _i: 0 }
+    },
+    [
+      _c(
+        "view",
+        {
+          staticClass: _vm._$s(1, "sc", "u-sticky__content"),
+          style: _vm._$s(1, "s", [_vm.stickyContent]),
+          attrs: { _i: 1 }
+        },
+        [_vm._t("default", null, { _i: 2 })],
+        2
+      )
+    ]
+  )
+}
+var recyclableRender = false
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+/* 298 */
+/*!**************************************************************************************************************************************!*\
+  !*** /Users/hanachan/Documents/Project/findTreasure/node_modules/uview-ui/components/u-sticky/u-sticky.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_1_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_u_sticky_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/babel-loader/lib!../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-1!../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/using-components.js!../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./u-sticky.vue?vue&type=script&lang=js& */ 299);
+/* harmony import */ var _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_1_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_u_sticky_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_1_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_u_sticky_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_1_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_u_sticky_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_1_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_u_sticky_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_1_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_uni_app_loader_using_components_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_u_sticky_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+/* 299 */
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/using-components.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!/Users/hanachan/Documents/Project/findTreasure/node_modules/uview-ui/components/u-sticky/u-sticky.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 20));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _props = _interopRequireDefault(__webpack_require__(/*! ./props.js */ 300));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};};
+/**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             * sticky 吸顶
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @description 该组件与CSS中position: sticky属性实现的效果一致，当组件达到预设的到顶部距离时， 就会固定在指定位置，组件位置大于预设的顶部距离时，会重新按照正常的布局排列。
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @tutorial https://www.uviewui.com/components/sticky.html
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @property {String ｜ Number}	offsetTop		吸顶时与顶部的距离，单位px（默认 0 ）
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @property {String ｜ Number}	customNavHeight	自定义导航栏的高度 （h5 默认44  其他默认 0 ）
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @property {Boolean}			disabled		是否开启吸顶功能 （默认 false ）
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @property {String}			bgColor			组件背景颜色（默认 '#ffffff' ）
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @property {String ｜ Number}	zIndex			吸顶时的z-index值
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @property {String ｜ Number}	index			自定义标识，用于区分是哪一个组件
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @property {Object}			customStyle		组件的样式，对象形式
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @event {Function} fixed		组件吸顶时触发
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @event {Function} unfixed	组件取消吸顶时触发
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             * @example <u-sticky offsetTop="200"><view>塞下秋来风景异，衡阳雁去无留意</view></u-sticky>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */var _default =
+{
+  name: 'u-sticky',
+  mixins: [uni.$u.mpMixin, uni.$u.mixin, _props.default],
+  data: function data() {
+    return {
+      cssSticky: false, // 是否使用css的sticky实现
+      stickyTop: 0, // 吸顶的top值，因为可能受自定义导航栏影响，最终的吸顶值非offsetTop值
+      elId: uni.$u.guid(),
+      left: 0, // js模式时，吸顶的内容因为处于postition: fixed模式，为了和原来保持一致的样式，需要记录并重新设置它的left，height，width属性
+      width: 'auto',
+      height: 'auto',
+      fixed: false // js模式时，是否处于吸顶模式
+    };
+  },
+  computed: {
+    style: function style() {
+      var style = {};
+      if (!this.disabled) {
+        if (this.cssSticky) {
+          style.position = 'sticky';
+          style.zIndex = this.uZindex;
+          style.top = uni.$u.addUnit(this.stickyTop);
+        } else {
+          style.height = this.fixed ? this.height + 'px' : 'auto';
+        }
+      } else {
+        // 无需吸顶时，设置会默认的relative(nvue)和非nvue的static静态模式即可
+
+
+
+
+        style.position = 'static';
+
+      }
+      style.backgroundColor = this.bgColor;
+      return uni.$u.deepMerge(uni.$u.addStyle(this.customStyle), style);
+    },
+    // 吸顶内容的样式
+    stickyContent: function stickyContent() {
+      var style = {};
+      if (!this.cssSticky) {
+        style.position = this.fixed ? 'fixed' : 'static';
+        style.top = this.stickyTop + 'px';
+        style.left = this.left + 'px';
+        style.width = this.width == 'auto' ? 'auto' : this.width + 'px';
+        style.zIndex = this.uZindex;
+      }
+      return style;
+    },
+    uZindex: function uZindex() {
+      return this.zIndex ? this.zIndex : uni.$u.zIndex.sticky;
+    } },
+
+  mounted: function mounted() {
+    this.init();
+  },
+  methods: {
+    init: function init() {
+      this.getStickyTop();
+      // 判断使用的模式
+      this.checkSupportCssSticky();
+      // 如果不支持css sticky，则使用js方案，此方案性能比不上css方案
+      if (!this.cssSticky) {
+        !this.disabled && this.initObserveContent();
+      }
+    },
+    initObserveContent: function initObserveContent() {var _this = this;
+      // 获取吸顶内容的高度，用于在js吸顶模式时，给父元素一个填充高度，防止"塌陷"
+      this.$uGetRect('#' + this.elId).then(function (res) {
+        _this.height = res.height;
+        _this.left = res.left;
+        _this.width = res.width;
+        _this.$nextTick(function () {
+          _this.observeContent();
+        });
+      });
+    },
+    observeContent: function observeContent() {var _this2 = this;
+      // 先断掉之前的观察
+      this.disconnectObserver('contentObserver');
+      var contentObserver = uni.createIntersectionObserver({
+        // 检测的区间范围
+        thresholds: [0.95, 0.98, 1] });
+
+      // 到屏幕顶部的高度时触发
+      contentObserver.relativeToViewport({
+        top: -this.stickyTop });
+
+      // 绑定观察的元素
+      contentObserver.observe("#".concat(this.elId), function (res) {
+        _this2.setFixed(res.boundingClientRect.top);
+      });
+      this.contentObserver = contentObserver;
+    },
+    setFixed: function setFixed(top) {
+      // 判断是否出于吸顶条件范围
+      var fixed = top <= this.stickyTop;
+      this.fixed = fixed;
+    },
+    disconnectObserver: function disconnectObserver(observerName) {
+      // 断掉观察，释放资源
+      var observer = this[observerName];
+      observer && observer.disconnect();
+    },
+    getStickyTop: function getStickyTop() {
+      this.stickyTop = uni.$u.getPx(this.offsetTop) + uni.$u.getPx(this.customNavHeight);
+    },
+    checkSupportCssSticky: function checkSupportCssSticky() {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+
+
+
+
+
+
+
+                // 如果安卓版本高于8.0，依然认为是支持css sticky的(因为安卓7在某些机型，可能不支持sticky)
+                if (uni.$u.os() === 'android' && Number(uni.$u.sys().system) > 8) {
+                  _this3.cssSticky = true;
+                }
+
+                // APP-Vue和微信平台，通过computedStyle判断是否支持css sticky
+                _context.next = 3;return (
+                  _this3.checkComputedStyle());case 3:_this3.cssSticky = _context.sent;
+
+
+                // ios上，从ios6开始，都是支持css sticky的
+                if (uni.$u.os() === 'ios') {
+                  _this3.cssSticky = true;
+                }
+
+                // nvue，是支持css sticky的
+              case 5:case "end":return _context.stop();}}}, _callee);}))();
+
+
+    },
+    // 在APP和微信小程序上，通过uni.createSelectorQuery可以判断是否支持css sticky
+    checkComputedStyle: function checkComputedStyle() {var _this4 = this;
+      // 方法内进行判断，避免在其他平台生成无用代码
+
+      return new Promise(function (resolve) {
+        uni.createSelectorQuery().in(_this4).select('.u-sticky').fields({
+          computedStyle: ["position"] }).
+        exec(function (e) {
+          resolve('sticky' === e[0].position);
+        });
+      });
+
+    },
+    // H5通过创建元素的形式嗅探是否支持css sticky
+    // 判断浏览器是否支持sticky属性
+    checkCssStickyForH5: function checkCssStickyForH5() {
+      // 方法内进行判断，避免在其他平台生成无用代码
+
+
+
+
+
+
+
+
+
+
+
+
+    } },
+
+  beforeDestroy: function beforeDestroy() {
+    this.disconnectObserver('contentObserver');
+  } };exports.default = _default;
+
+/***/ }),
+/* 300 */
+/*!*********************************************************************************************************!*\
+  !*** /Users/hanachan/Documents/Project/findTreasure/node_modules/uview-ui/components/u-sticky/props.js ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  props: {
+    // 吸顶容器到顶部某个距离的时候，进行吸顶，在H5平台，NavigationBar为44px
+    offsetTop: {
+      type: [String, Number],
+      default: uni.$u.props.sticky.offsetTop },
+
+    // 自定义导航栏的高度
+    customNavHeight: {
+      type: [String, Number],
+
+
+
+
+
+      default: uni.$u.props.sticky.customNavHeight },
+
+
+    // 是否开启吸顶功能
+    disabled: {
+      type: Boolean,
+      default: uni.$u.props.sticky.disabled },
+
+    // 吸顶区域的背景颜色
+    bgColor: {
+      type: String,
+      default: uni.$u.props.sticky.bgColor },
+
+    // z-index值
+    zIndex: {
+      type: [String, Number],
+      default: uni.$u.props.sticky.zIndex },
+
+    // 列表中的索引值
+    index: {
+      type: [String, Number],
+      default: uni.$u.props.sticky.index } } };exports.default = _default;
 
 /***/ })
 ],[[0,"app-config"]]]);
