@@ -9,7 +9,10 @@
             "style" : {
                 "navigationBarTitleText" : "",
                 "enablePullDownRefresh" : false,
-				"onReachBottomDistance":126
+				"onReachBottomDistance":126,
+				"app-plus":{
+				    "bounce":"none" // 将回弹属性关掉
+				}
             }
         },
         // {
@@ -81,7 +84,10 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"app-plus":{
+				    "bounce":"none" // 将回弹属性关掉
+				}
             }
             
         }

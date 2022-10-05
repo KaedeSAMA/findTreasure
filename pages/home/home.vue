@@ -1,6 +1,6 @@
 <template>
 	<view class="homeRoot" :style="'min-height:'+(screenHeight - 100)+'px'">
-		<u-sticky offset-top="0" bgColor='rgba(78, 87, 126, 100)' style="top: 0; ">
+		<u-sticky offset-top="0" bgColor='rgba(78, 87, 126, 100)'>
 			<!-- 占位盒子 -->
 			<view class="before">
 			</view>
@@ -149,7 +149,7 @@
 		background-color: rgba(78, 87, 126, 100);
 	}
 	.before{
-		height: 70rpx;
+		height: 90rpx;
 	}
 	.findAndCamera {
 		display: flex;

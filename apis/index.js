@@ -69,9 +69,9 @@ class Request {
 					// console.log("routes = ");
 					// console.dir(routes);
 					// debug
-					console.log('every res =');
+					// console.log('every res =');
 					// console.dir(res)
-					let curRoute = routes[routes.length - 1].route;
+					// let curRoute = routes[routes.length - 1].route;
 					//如果要加判断的话就加下面这行在if里面
 					// && (curRoute !== 'pages/home/home')
 					// 下面这行代码千万要加括号('D0400'||'D0500')
@@ -82,6 +82,7 @@ class Request {
 						uni.navigateTo({
 							url:'/pages/login/login'
 						})
+
 					} else {
 						resolve(res)
 					}

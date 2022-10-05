@@ -1,5 +1,5 @@
 <template>
-	<view class="myCollectionRoot">
+	<view class="myCollectionRoot" :style="'min-height:'+(screenHeight)+'px'">
 		<view class="title">
 			我的藏品
 		</view>
@@ -27,7 +27,8 @@
 			},
 			
 		},
-		onLoad(){
+		onShow(){
+			this.screenHeight = getApp().globalData.screenHeight,
 			this.getCollectionList()
 		}
 	}

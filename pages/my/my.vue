@@ -4,11 +4,11 @@
     <view class="header">
       <u--image src="../../static/icon/remind.png" width="48rpx" height="48rpx" class="reminder"></u--image>
     </view>
-    <!-- 头像和用户信息盒子，用全局的isLogin检测是否登陆，采用row布局 -->
+    <!-- 头像和用户信息盒子，用全局的isLogin检测是否登录，采用row布局 -->
     <view class="userhead" v-if="isLogin == true">
       <!-- 头像 -->
       <view>
-        <u--image width="130rpx" height="130rpx" src="../../static/icon/camera.png"></u--image>
+        <u--image width="130rpx" height="130rpx" src="../../static/info/avatar.jpg" shape="circle"></u--image>
       </view>
       <!-- 用户信息，column布局 -->
       <view class="userNameAndSlogan">
@@ -23,8 +23,8 @@
       </view>
       <!-- 用户信息，column布局 -->
       <view class="userNameAndSlogan">
-        <view>登陆</view>
-        <view class="userSlogan">个性签名</view>
+        <view>登录</view>
+        <view class="userSlogan">登录查看个性签名</view>
       </view>
     </view>
     <!-- 动态，粉丝，关注信息 -->
@@ -105,6 +105,9 @@ export default {
 	  		url: val
 	  	})
 	  }
+  },
+  onShow(){
+	  this.isLogin = this.$store.state.isLogin
   }
 };
 </script>

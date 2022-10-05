@@ -7,7 +7,7 @@
 				<view class="title_font">手机号登录注册</view>
 			</view>
 			<!-- debug -->
-			<!-- <view class="title_font">密码登陆</view> -->
+			<!-- <view class="title_font">密码登录</view> -->
 		</view>
 		<!-- 头部标题栏的图片 -->
 		<view class="titleImage">
@@ -38,7 +38,7 @@
 		</view>
 		<!-- 注册按钮 -->
 		<view class="loginBtnDiv">
-			<u-button text="验证登陆" size="large" type="success" color="#4E577E" @click="login()"></u-button>
+			<u-button text="验证登录" size="large" type="success" color="#4E577E" @click="login()"></u-button>
 		</view>
 		<!-- 开发者协议 -->
 		<view class="agreement">
@@ -112,7 +112,7 @@
 							})
 							uni.$http.post("/send", {
 								phoneNum: this.phone,
-								// type传1是登陆，传2是注册
+								// type传1是登录，传2是注册
 								// 不知道后端为啥这么写
 							}).then((res) => {
 								console.log(res)
@@ -137,25 +137,37 @@
 				}
 			},
 			async login() {
-				const res = await uni.$http.post('/login', {
-					phoneNum: this.phone,
-					verificationCode: this.justCode
-				})
-				//debug
-				// console.log("res.data.data=",res.data.data)
-				//判断是否有cookie
-				if (res.data.data){
-					//存cookie
-					uni.setStorageSync('tokenCode', res.data.data);
-					this.$store.commit('modifyIsLogin', {isLogin:true})
-					uni.$u.toast('登录成功，即将跳转到首页。')
-					setTimeout(()=>{
-						uni.switchTab({
-							url: '/pages/home/home'
-						});
-					},1000)
+				if (this.isAgree === true) {
+					if (this.checkMobile(this.phone)) {
+						console.log('开始发送请求')
+						const res = await uni.$http.post('/login', {
+							phoneNum: this.phone,
+							verificationCode: this.justCode
+						})
+						//debug
+						// console.log("res.data.data=",res.data.data)
+						//判断是否有cookie
+						if (res.data.data){
+							//存cookie
+							uni.setStorageSync('tokenCode', res.data.data);
+							this.$store.commit('modifyIsLogin', {isLogin:true})
+							uni.$u.toast('登录成功，即将跳转到首页。')
+							setTimeout(()=>{
+								uni.switchTab({
+									url: '/pages/home/home'
+								});
+							},1000)
+						}
+						console.log('getCookie',uni.getStorageSync('tokenCode'))
+						
+					} else {
+						uni.$u.toast('请输入正确的手机号');
+					}
+				
+				} else {
+					uni.$u.toast('请勾选同意用户协议后再操作');
 				}
-				console.log('getCookie',uni.getStorageSync('tokenCode'))
+				
 
 			},
 			changeIsAgree() {
@@ -175,8 +187,27 @@
 				uni.switchTab({
 					url: '/pages/home/home'
 				});
+			},
+			initStack(){
+				let pages = getCurrentPages()
+				console.log('pages路由数组是：',pages);
+				console.log('当前的页面栈第一个页面的路由为：',pages[0].route)
 			}
-		}
+		},
+		onShow(){
+			this.initStack()
+		},
+		onBackPress(e) {
+		    if (e.from == "backbutton") {
+				//debug
+		         console.log("用户使用了物理返回键");
+		         //在这里操作代码
+				 uni.switchTab({
+				 	url:'/pages/home/home'
+				 })
+		        return true//如果不写就会返回
+		    }
+		},
 	}
 </script>
 

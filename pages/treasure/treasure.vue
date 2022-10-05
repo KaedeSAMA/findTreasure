@@ -36,7 +36,8 @@
 						</view>
 						<!-- icon图标 -->
 						<view class="iconList">
-							<u--image   src="../../static/icon/tabNameLike.png" mode="" width="38rpx" height="38rpx"></u--image>
+							<u--image  v-show="this.isLove == false" src="../../static/icon/tabNameLike.png" mode="" width="38rpx" height="38rpx" @click="addLike()"></u--image>
+							<u--image v-show="this.isLove == true" src="../../static/icon/iconParkLike.png" mode="" width="38rpx" height="38rpx" @click="addLike()"></u--image>
 							<u--image   src="../../static/icon/iconParkShare.png" mode="" width="38rpx" height="38rpx"></u--image>
 							<u--image   src="../../static/icon/iconParkComment.png" mode="" width="38rpx" height="38rpx"></u--image>
 						</view>
@@ -74,7 +75,8 @@
 				dynasty:'朝代名字七个字',
 				tag:'标签名字七个字',
 				feature:'特征名字七个字',
-				more:''
+				more:'',
+				isLove:false,
 			};
 		},
 		onLoad(query) {
@@ -120,11 +122,38 @@
 					this.tag = this.moreData.data.data.tag
 					this.feature = this.moreData.data.data.feature
 					this.more = this.moreData.data.data.more
+					this.isLove = this.moreData.data.data.isLove
 				})
 			},
 			isSpand(){
 				console.log();
-			}
+			},
+			addLike(){
+				console.log(this.moreData.data.data);
+				if(this.isLove == false){
+					uni.$http.post('/home/info/collect',{
+						collectionId : this.collectionId
+					}).then((res)=>{
+						// console.log(res.data.code);
+						if(res.data.code == '00000'){
+							this.isLove = true
+						}else{
+							uni.$u.toast('收藏失败')
+						}
+					})
+				}else{
+					uni.$http.post('/home/info/cancel',{
+						collectionId : this.collectionId
+					}).then((res)=>{
+						// console.log(res.data.code);
+						if(res.data.code == '00000'){
+							this.isLove = false
+						}else{
+							uni.$u.toast('取消收藏失败')
+						}
+					})
+				}
+			},
 		}
 	}
 </script>
