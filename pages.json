@@ -158,6 +158,12 @@
 				"iconPath": "static/tabbar_icon/map.png",
 				"selectedIconPath": "static/tabbar_icon/mapChecked.png"
             },
+			{
+				"pagePath" : "pages/map/map",
+				"text" : "博物馆",
+				"iconPath": "static/tabbar_icon/map.png",
+				"selectedIconPath": "static/tabbar_icon/mapChecked.png"
+			},
             {
                 "pagePath" : "pages/my/my",
                 "text" : "我的",

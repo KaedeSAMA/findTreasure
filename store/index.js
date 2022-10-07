@@ -6,13 +6,18 @@ const store = new Vuex.Store({
 	state: {
 		vuex_token: '',
 		isLogin :false,
+		isFirstLoad:true,
+		homeList:{
+			cardListL: [],
+			cardListR: [],
+		}
 	},
 	mutations: {
 		// payload为用户传递的值，可以是单一值或者对象
 		modifyIsLogin(state, payload) {
 			state.isLogin = payload.isLogin;
 			console.log("isLogin = true");
-		}
+		},
 	}
 })
  

@@ -4,7 +4,7 @@
 		<view class="title">
 			<view class="title_back">
 				<u-icon name="arrow-leftward" color="rgb(16, 16, 16)" size="20" @click="backToUser()"></u-icon>
-				<view class="title_font">手机号登录注册</view>
+				<view class="title_font">返回</view>
 			</view>
 			<!-- debug -->
 			<!-- <view class="title_font">密码登录</view> -->

@@ -16,6 +16,7 @@
 			logOut(){
 				uni.setStorageSync('tokenCode', '');
 				this.$store.state.isLogin = false;
+				this.$store.state.isFirstLoad = true;
 				uni.$u.toast('退出登录成功，即将跳转至首页')
 				setTimeout(()=>{
 					uni.switchTab({

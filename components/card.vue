@@ -7,7 +7,7 @@
       <view class="nameAndLocation">
         <!-- 这部分名字需要处理，超过七个字会隐藏 -->
         <view>{{ computedName }}</view>
-        <view class="locationFont">地点 {{ location }}</view>
+        <view class="locationFont">{{ location }}</view>
       </view>
 	  <image v-show="this.isLove == false" src="../static/icon/tabNameLike.png" mode="" class="likeIcon" @click.stop="addLike()"></image>
 	  <image v-show="this.isLove == true" src="../static/icon/iconParkLike.png" mode="" class="likeIcon" @click.stop="addLike()"></image>
@@ -108,7 +108,7 @@ export default {
   border-radius: 6px 6px 6px 6px;
   margin-top: 28rpx;
   color: #333333;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .14);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .32), 0 0 6px rgba(0, 0, 0, .54);
   //隐藏图片溢出的部分
   overflow: hidden;
   // display: flex;

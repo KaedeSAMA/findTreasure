@@ -12,7 +12,7 @@
 				</view>
 			</view>
 			<!-- 图片部分 -->
-			<image :src="recommendData.img" mode="widthFix" class="img"></image>
+			<image :src="recommendData.img" mode="heightFix" class="img"></image>
 			<!-- 简介部分 -->
 			<view class="bottomDiscription">
 				
@@ -83,7 +83,7 @@
 	}
 }
 .img{
-	width: 60%;
+	height: 600rpx;
 }
 
 </style>
