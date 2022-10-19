@@ -1,39 +1,41 @@
 <template>
 	<view class="homeRoot" :style="'min-height:'+(screenHeight - 100)+'px'">
-		<u-sticky offset-top="0" bgColor='rgba(78, 87, 126, 100)' style="top: 0; ">
-			<!-- 占位盒子 -->
-			<view class="before">
-			</view>
-			<!-- 第一部分：图标Icon，查找和相机 -->
-			<view class="findAndCamera">
-				<!-- 觅宝图标 -->
-				<u--image src="../../static/icon/homeIcon.png" width="104rpx" height="64rpx" mode="aspectFit"></u--image>
-				<!-- 搜索框 -->
-				<view class="searchInput">
-					<u-search shape="round" :show-action="false" @change="getByKeyword($event)"></u-search>
+		<u-sticky offset-top="0" bgColor='rgba(78, 87, 126, 100)' style="top: 0; width: 700rpx;">
+			<view class="sticky">
+				<!-- 占位盒子 -->
+				<view class="before">
 				</view>
-				<!-- 相机框 -->
-				<u--image src="../../static/icon/camera.png" width="40rpx" height="40rpx" mode="aspectFit"></u--image>
-			</view>
-			<!-- 第二部分：过滤选择器标签 -->
-			<view class="filter">
-				<u-tabs :list="filterList" @click="changeTab($event)" lineWidth="40rpx" :activeStyle="{
-						height:'60rpx',
-						'font-size':'36rpx',
-						color: '#EFEFEF',
-						fontWeight: 'bold',
-						transform: 'scale(1.1)'
-					}" :inactiveStyle="{
-						height:'60rpx',
-						'font-size':'34rpx',
-						color: '#EFEFEF',
-						transform: 'scale(1)'
-					}" itemStyle="width:180rpx  height: 60rpx;" :scrollable="true">
-					<view slot="right" style="padding-left: 10rpx; margin-top: -15rpx;" @tap="$u.toast('插槽被点击')">
-						<u--image src="../../static/icon/filter.png" width="40rpx" height="40rpx" mode="aspectFit">
-						</u--image>
+				<!-- 第一部分：图标Icon，查找和相机 -->
+				<view class="findAndCamera">
+					<!-- 觅宝图标 -->
+					<u--image src="../../static/icon/homeIcon.png" width="104rpx" height="64rpx" mode="aspectFit"></u--image>
+					<!-- 搜索框 -->
+					<view class="searchInput">
+						<u-search shape="round" :show-action="false" @change="getByKeyword($event)"></u-search>
 					</view>
-				</u-tabs>
+					<!-- 相机框 -->
+					<u--image src="../../static/icon/camera.png" width="40rpx" height="40rpx" mode="aspectFit" @click="getImage()"></u--image>
+				</view>
+				<!-- 第二部分：过滤选择器标签 -->
+				<view class="filter">
+					<u-tabs :list="filterList" @click="changeTab($event)" lineWidth="40rpx" :activeStyle="{
+							height:'60rpx',
+							'font-size':'36rpx',
+							color: '#EFEFEF',
+							fontWeight: 'bold',
+							transform: 'scale(1.1)'
+						}" :inactiveStyle="{
+							height:'60rpx',
+							'font-size':'34rpx',
+							color: '#EFEFEF',
+							transform: 'scale(1)'
+						}" itemStyle="width:180rpx  height: 60rpx;" :scrollable="true">
+<!-- 						<view slot="right" style="padding-left: 10rpx; margin-top: -15rpx;" @tap="$u.toast('插槽被点击')">
+							<u--image src="../../static/icon/filter.png" width="40rpx" height="40rpx" mode="aspectFit">
+							</u--image>
+						</view> -->
+					</u-tabs>
+				</view>
 			</view>
 		</u-sticky>
 
@@ -205,6 +207,58 @@ import card from "../../components/card.vue";
 					this.pushList(res)
 					this.page ++
 				})
+			},
+			getImage(){
+				uni.chooseImage({
+					
+					sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+					sourceType: ['camera','album'], //从相册选择
+					success: function (res) {
+						uni.showLoading({
+							title: '图像识别中...'
+						})
+						console.log(res.tempFilePaths[0]);
+						return new Promise((resolve, reject) => {
+							let a = uni.uploadFile({
+								fileType:'image',
+								header: {
+									token:uni.getStorageSync('tokenCode'), //读取本地保存好的上一次cookie
+									// 'content-type': 'multipart/form-data'
+								},
+								url: 'http://haorui.xyz:8085/photo/search', // 仅为示例，非真实的接口地址
+								// url: 'http://127.0.0.1:8085/photo/search', // 仅为示例，非真实的接口地址
+								filePath: res.tempFilePaths[0],
+								// file : url,
+								name: 'file',
+								formData: {
+									user: 'test'
+								},
+								success: (res) => {
+									res.data = JSON.parse(res.data);
+									// console.log("search res.data=",res.data);
+									setTimeout(() => {
+										resolve(res.data.data)
+									}, 1000)
+									if(res.data.data!=undefined){
+										uni.navigateTo({
+											url:`/pages/treasure/treasure?collectionId=${res.data.data.id}`
+										})
+									}else{
+										uni.showToast({
+											title: '未识别到相关藏品',
+											icon: 'none'
+										});
+									}
+									uni.hideLoading()
+								},
+								fail:(err)=>{
+									uni.hideLoading()
+									console.log(err)
+								}
+							});
+						})
+					}
+				});
 			}
 		},
 		mounted() {
@@ -213,16 +267,27 @@ import card from "../../components/card.vue";
 </script>
 
 <style lang="less">
+	.sticky{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
 	.homeRoot {
 		padding: 0rpx 20rpx 100rpx 20rpx;
 		background-color: rgba(78, 87, 126, 100);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 	.before{
 		height: 70rpx;
 	}
 	.findAndCamera {
+		width: 670rpx;
 		display: flex;
 		flex-direction: row;
+		justify-content: space-between;
 		align-items: center;
 	}
 
@@ -232,6 +297,7 @@ import card from "../../components/card.vue";
 	}
 
 	.filter {
+		width: 700rpx;
 		margin-top: 30rpx;
 		padding-bottom: 10rpx;
 		border-bottom: solid 1px rgba(58, 87, 110, 100);

@@ -7,7 +7,7 @@
 		<!-- 标题 -->
 		<view class="title">
 			<view class="title_flex">
-				<u--image  @click="backPageTo(1)" src="../../static/icon/iconPark-left Copy@1x.png" mode="" width="76rpx" height="76rpx"></u--image>
+				<u--image  @click="backPage()" src="../../static/icon/iconPark-left Copy@1x.png" mode="" width="76rpx" height="76rpx"></u--image>
 				<view class="titleFont">
 					文物详情
 				</view>
@@ -21,10 +21,10 @@
 			<image  :src="imgURL" mode="widthFix" class="mainImage" ></image>
 		</view>
 		<!-- 文字部分 -->
-		<ww-bottom-drawerapp @callExpand="isSpand()" :dragHandleHeight="40">
+		<ww-bottom-drawerapp @callExpand="isSpand($event)" :dragHandleHeight="40" :proportionShow="0.5" >
 		    <slot>
 		        <!--填入你的抽屉View-->
-		        <scroll-view :scroll-y="true" class="drawer">
+		        <scroll-view :scroll-y="this.isBig" class="drawer">
 					<!-- 头部 -->
 					<view class="drawerHeader">
 						<!-- 名字 -->
@@ -77,6 +77,8 @@
 				feature:'特征名字七个字',
 				more:'',
 				isLove:false,
+				pageStack:[],
+				isBig:false,
 			};
 		},
 		onLoad(query) {
@@ -85,9 +87,23 @@
 		    })
 			console.log(query);
 			this.collectionId = query.collectionId
+			//debug
+			getCurrentPages().map(val=>{
+				this.pageStack.push(val.route)
+			})
+			console.log('pageStack = ',this.pageStack);
 		},
 		onShow(){
 			this.getMoreData()
+		},
+		onBackPress(e) {
+		    if (e.from == "backbutton") {
+				//debug
+		         // console.log("用户使用了物理返回键");
+		         //在这里操作代码
+				 this.backPage()
+		        return true//如果不写就会返回
+		    }
 		},
 		onLaunch: function() {
 			console.log('App Launch');
@@ -97,6 +113,7 @@
 					this.globalData.screenHeight = res.screenHeight - 50;
 				}
 			})
+			//debug
 		},
 		methods:{
 			changePageTo(val) {
@@ -104,7 +121,21 @@
 					url: val
 				})
 			},
+			backPage(){
+				if (this.pageStack[this.pageStack.length-2] === "pages/recommend/recommend"){
+					// console.log(this.pageStack[this.pageStack.length-2]);
+					uni.switchTab({
+						url:'/pages/home/home'
+					})
+				}else{
+					uni.navigateBack({
+						delta:1
+					})
+				}
+			},
 			backPageTo(val) {
+				
+				console.log('current Page',getCurrentPages());
 				uni.navigateBack({
 					delta: val
 				});
@@ -125,8 +156,13 @@
 					this.isLove = this.moreData.data.data.isLove
 				})
 			},
-			isSpand(){
-				console.log();
+			isSpand(e){
+				// console.log(e);
+				if (e.value === true){
+					this.isBig = true
+				}else{
+					this.isBig = false
+				}
 			},
 			addLike(){
 				console.log(this.moreData.data.data);

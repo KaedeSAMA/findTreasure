@@ -5,6 +5,15 @@
     "pages" : [
         //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
         {
+            "path" : "pages/recommend/recommend",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        },
+		{
             "path" : "pages/home/home",
             "style" : {
                 "navigationBarTitleText" : "",
@@ -100,15 +109,7 @@
             }
             
         }
-        ,{
-            "path" : "pages/recommend/recommend",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
+        
         ,{
             "path" : "pages/history/history",
             "style" :                                                                                    
@@ -129,6 +130,33 @@
         }
         ,{
             "path" : "pages/settings/settings",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/editUserInfo/editUserInfo",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/museumMore/museumMore",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/updateCollection/updateCollection",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",

@@ -100,3 +100,4 @@ class Request {
 }
 
 export const $http = new Request()
+export const $http1 = new Request()

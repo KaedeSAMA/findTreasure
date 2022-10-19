@@ -9,7 +9,6 @@
 	export default {
 		data() {
 			return {
-				
 			};
 		},
 		methods:{
@@ -23,7 +22,8 @@
 						url:'/pages/home/home'
 					})
 				},2500)
-			}
+			},
+
 		}
 	}
 </script>

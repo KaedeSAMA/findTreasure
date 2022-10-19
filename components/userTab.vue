@@ -35,6 +35,9 @@
 					case 2:
 						pageURL = '/pages/history/history'
 						break;
+					case 4:
+						pageURL = '/pages/updateCollection/updateCollection'
+						break;
 					case 5:
 						pageURL = '/pages/settings/settings'
 						break;
