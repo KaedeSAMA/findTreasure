@@ -134,14 +134,14 @@
                         "^/api" : "/api"
                     } //api路径重定向，根据具体情况调整，也可不写
                 },
-				"/map" : {
-				    "target" : "https://restapi.amap.com", //自己项目接口域名
-				    "changeOrigin" : true, //是否跨域
-				    "secure" : true, // 设置支持https协议的代理
-				    "pathRewrite" : {
-				        "^/map" : "/map"
-				    } //api路径重定向，根据具体情况调整，也可不写
-				}
+                "/map" : {
+                    "target" : "https://restapi.amap.com", //自己项目接口域名
+                    "changeOrigin" : true, //是否跨域
+                    "secure" : true, // 设置支持https协议的代理
+                    "pathRewrite" : {
+                        "^/map" : "/map"
+                    } //api路径重定向，根据具体情况调整，也可不写
+                }
             }
         },
         "optimization" : {

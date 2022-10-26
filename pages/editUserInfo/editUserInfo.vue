@@ -2,7 +2,7 @@
 	<view class="settingsRoot">
 		<!-- 标题组件 -->
 		<my-title title="设置个人信息"></my-title>
-		<view class="formBox" :style="'height:'+(screenHeight * 0.35)+'px'">
+		<view class="formBox" :style="'height:'+(screenHeight * 0.55)+'px'">
 			<!-- 上传头像盒子 -->
 			<view class="aliginHead uploadAvatar">
 				上传用户头像

@@ -183,8 +183,8 @@
             {
                 "pagePath" : "pages/myCollection/myCollection",
                 "text" : "藏品",
-				"iconPath": "static/tabbar_icon/map.png",
-				"selectedIconPath": "static/tabbar_icon/mapChecked.png"
+				"iconPath": "static/tabbar_icon/collection.png",
+				"selectedIconPath": "static/tabbar_icon/collectionChecked.png"
             },
 			{
 				"pagePath" : "pages/map/map",

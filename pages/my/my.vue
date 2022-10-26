@@ -93,7 +93,7 @@ export default {
 	  {
 		  id:4,
 		  tabName:"用户上传",
-		  iconURL:"../../static/icon/tabNameHelp.png"
+		  iconURL:"../../static/icon/tabNameUpload.png"
 	  },
 	  {
 		  id :5,
